@@ -24,3 +24,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 });
+
+const toggle = document.getElementById('menuToggle');
+const overlay = document.getElementById('menuOverlay');
+
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('active');
+  overlay.classList.toggle('active');
+});
+
+/* chiudi menu quando clicchi link */
+document.querySelectorAll('.menu-overlay a').forEach(link => {
+  link.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+});

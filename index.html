@@ -6,50 +6,6 @@
 <title>SaSida Country – Location Matrimoni in Sardegna</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-  /* Extra image slots */
-  .extra-img-slot {
-    aspect-ratio: 3/4;
-    background: rgba(107,122,74,0.08);
-    border: 2px dashed rgba(107,122,74,0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  .extra-img-slot:hover { background: rgba(107,122,74,0.14); }
-  .extra-img-slot span:first-child { font-size: 2rem; }
-  .extra-img-slot span:last-child {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-  }
-  /* Gallery extra slots */
-  .gallery-slot {
-    background: rgba(30,30,26,0.5);
-    border: 2px dashed rgba(196,166,100,0.25);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    cursor: pointer;
-    overflow: hidden;
-    transition: background 0.3s;
-  }
-  .gallery-slot:hover { background: rgba(30,30,26,0.7); }
-  .gallery-slot span:first-child { font-size: 1.5rem; }
-  .gallery-slot span:last-child {
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-  }
-</style>
 </head>
 <body>
 
@@ -69,21 +25,21 @@
 <section class="hero">
   <div class="hero-bg" style="background:
     linear-gradient(to bottom, rgba(20,20,16,0.65) 0%, rgba(20,20,16,0.45) 50%, rgba(20,20,16,0.75) 100%),
-    url('sfondo.jpg') center/cover no-repeat;">
+    url('sfondo.jpg') center/cover no-repeat; filter: blur(2px);">
   </div>
   <div class="hero-content">
-    <div class="hero-logo">
-      <img src="logo.jpg" alt="SaSida Country">
-    </div>
-    <div class="hero-eyebrow">Sanluri · Sardegna</div>
     <h1>SaSida<br><em>Country</em></h1>
     <p class="hero-sub">Location per matrimoni ed eventi esclusivi</p>
     <a href="#contatti" class="hero-cta">Richiedi disponibilità</a>
   </div>
-  <div class="hero-scroll">
-    <span>Scopri</span>
-    <div class="scroll-line"></div>
-  </div>
+</section>
+
+
+<section class="emotion reveal">
+  <h2>
+    Non è solo una location.<br>
+    È il luogo dove inizia la vostra storia.
+  </h2>
 </section>
 
 <!-- INTRO -->
@@ -214,7 +170,7 @@
     <li><a href="#servizi">Servizi</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
-  <div class="footer-copy">© 2025 SaSida Country · Sanluri, Sardegna</div>
+  <div class="footer-copy">© 2025 SaSida Country · Made by Mockly.</div>
 </footer>
 
 <script src="script.js"></script>

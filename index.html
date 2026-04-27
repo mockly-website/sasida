@@ -6,23 +6,75 @@
 <title>SaSida Country – Location Matrimoni in Sardegna</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Extra image slots */
+  .extra-img-slot {
+    aspect-ratio: 3/4;
+    background: rgba(107,122,74,0.08);
+    border: 2px dashed rgba(107,122,74,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .extra-img-slot:hover { background: rgba(107,122,74,0.14); }
+  .extra-img-slot span:first-child { font-size: 2rem; }
+  .extra-img-slot span:last-child {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  /* Gallery extra slots */
+  .gallery-slot {
+    background: rgba(30,30,26,0.5);
+    border: 2px dashed rgba(196,166,100,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .gallery-slot:hover { background: rgba(30,30,26,0.7); }
+  .gallery-slot span:first-child { font-size: 1.5rem; }
+  .gallery-slot span:last-child {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+</style>
 </head>
 <body>
 
 <nav id="nav">
-  <div class="nav-logo">SaSida Country</div>
+  <div class="nav-logo">
+    <img src="logo.jpg" alt="SaSida Country">
+  </div>
   <ul class="nav-links">
     <li><a href="#storia">Storia</a></li>
     <li><a href="#spazi">Spazi</a></li>
     <li><a href="#servizi">Servizi</a></li>
-    <li><a href="#prezzi">Prezzi</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" style="background:
+    linear-gradient(to bottom, rgba(20,20,16,0.65) 0%, rgba(20,20,16,0.45) 50%, rgba(20,20,16,0.75) 100%),
+    url('sfondo.jpg') center/cover no-repeat;">
+  </div>
   <div class="hero-content">
+    <div class="hero-logo">
+      <img src="logo.jpg" alt="SaSida Country">
+    </div>
     <div class="hero-eyebrow">Sanluri · Sardegna</div>
     <h1>SaSida<br><em>Country</em></h1>
     <p class="hero-sub">Location per matrimoni ed eventi esclusivi</p>
@@ -34,13 +86,14 @@
   </div>
 </section>
 
+<!-- INTRO -->
 <section class="intro" id="storia">
   <div class="intro-text reveal">
     <div class="intro-tag">La nostra storia</div>
     <h2>Nel cuore della <em>Sardegna autentica</em></h2>
     <p>Immersa in un uliveto incantato, SaSida Country è la cornice perfetta per matrimoni ed eventi esclusivi. Situata in un paesaggio naturale di straordinaria bellezza, questa location unica offre un'atmosfera suggestiva e autentica.</p>
     <p>Ideale per chi desidera celebrare momenti speciali in armonia con la natura, tra i profumi della macchia mediterranea e il silenzio della campagna sarda.</p>
-    <p>Durante l'evento sarà possibile passeggiare tra la vigna e l'uliveto, scattare foto suggestive e godere di un'atmosfera magica immersi nella natura.</p>
+    <p>Durante l'evento sarà possibile passeggiare tra la vigna e l'uliveto, scattare foto suggestive e godere di un'atmosfera magica immersi nella natura caratteristica della meravigliosa Sardegna.</p>
     <div class="intro-stat">
       <div class="stat-item"><div class="stat-num">150</div><div class="stat-label">Ospiti max</div></div>
       <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Ricordi</div></div>
@@ -48,10 +101,12 @@
     </div>
   </div>
   <div class="intro-image reveal">
-    <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=80" alt="Uliveto SaSida Country">
+    <!-- Immagine principale sezione Storia -->
+    <img src="sasida.jpg" alt="SaSida Country – Ingresso">
   </div>
 </section>
 
+<!-- SPACES -->
 <section class="spaces" id="spazi">
   <div class="spaces-inner">
     <div class="section-header reveal">
@@ -59,26 +114,53 @@
       <h2>Ambienti <em>unici</em> tra natura e eleganza</h2>
     </div>
     <div class="spaces-grid reveal">
+      <!-- Card 1 – grande, foto location principale -->
       <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Cerimonia">
-        <div class="space-overlay"><div class="space-title">Cerimonia sotto le stelle</div><div class="space-desc">Ampi spazi all'aperto tra gli ulivi per cerimonie suggestive e indimenticabili</div></div>
+        <img src="sfondo1.jpg" alt="Vista generale">
+        <div class="space-overlay">
+          <div class="space-title">Cerimonia sotto le stelle</div>
+          <div class="space-desc">Ampi spazi all'aperto tra gli ulivi per cerimonie suggestive e indimenticabili</div>
+        </div>
       </div>
+      <!-- Card 2 – salotto lounge -->
       <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Banchetto">
-        <div class="space-overlay"><div class="space-title">Sala ricevimenti</div><div class="space-desc">Ambienti versatili e raffinati per banchetti fino a 150 ospiti</div></div>
+        <img src="salotto.jpg" alt="Lounge aperitivo">
+        <div class="space-overlay">
+          <div class="space-title">Lounge aperitivo</div>
+          <div class="space-desc">Spazi intimi con arredi in rattan per accogliere gli ospiti nel relax della natura</div>
+        </div>
       </div>
+      <!-- Card 3 – pizza / catering -->
       <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Uliveto">
-        <div class="space-overlay"><div class="space-title">Uliveto e vigna</div><div class="space-desc">Scorci naturali unici per foto e momenti magici nella campagna sarda</div></div>
+        <img src="pizza.jpg" alt="Catering & Pizza">
+        <div class="space-overlay">
+          <div class="space-title">Catering libero</div>
+          <div class="space-desc">Spazio dedicato al catering e a esperienze gastronomiche uniche per i vostri ospiti</div>
+        </div>
       </div>
+      <!-- Card 4 – altos / terrazza -->
       <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Lounge">
-        <div class="space-overlay"><div class="space-title">Lounge aperitivo</div><div class="space-desc">Spazi intimi per accogliere gli ospiti nel relax della natura</div></div>
+        <img src="altos.jpg" alt="Terrazza">
+        <div class="space-overlay">
+          <div class="space-title">Terrazza & relax</div>
+          <div class="space-desc">Scorci naturali unici per foto e momenti magici nella campagna sarda</div>
+        </div>
+      </div>
+      <!-- Slot extra 1 – aggiungere immagine -->
+      <div class="space-card extra-img-slot">
+        <span>＋</span>
+        <span>Aggiungi foto</span>
+      </div>
+      <!-- Slot extra 2 – aggiungere immagine -->
+      <div class="space-card extra-img-slot">
+        <span>＋</span>
+        <span>Aggiungi foto</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- SERVICES -->
 <section class="services" id="servizi">
   <div class="section-header reveal">
     <span class="section-tag" style="color: var(--olive)">I nostri servizi</span>
@@ -94,38 +176,27 @@
   </div>
 </section>
 
-<div class="gallery-strip">
-  <div><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&q=80" alt="gallery 1"></div>
-  <div><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80" alt="gallery 2"></div>
-  <div><img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?w=400&q=80" alt="gallery 3"></div>
-  <div><img src="https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c?w=400&q=80" alt="gallery 4"></div>
-  <div><img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=400&q=80" alt="gallery 5"></div>
+<!-- GALLERY STRIP – 5 foto reali + 3 slot vuoti -->
+<div class="gallery-strip" style="grid-template-columns: repeat(8,1fr); height:300px;">
+  <div><img src="img1.jpg" alt="gallery 1"></div>
+  <div><img src="salotto.jpg" alt="gallery 2"></div>
+  <div><img src="sfondo.jpg" alt="gallery 3"></div>
+  <div><img src="altos.jpg" alt="gallery 4"></div>
+  <div><img src="pizza.jpg" alt="gallery 5"></div>
+  <!-- Slot vuoti per future immagini -->
+  <div class="gallery-slot"><span>＋</span><span>Foto</span></div>
+  <div class="gallery-slot"><span>＋</span><span>Foto</span></div>
+  <div class="gallery-slot"><span>＋</span><span>Foto</span></div>
 </div>
 
-<section class="pricing" id="prezzi">
-  <div class="pricing-inner reveal">
-    <span class="section-tag" style="color: var(--olive); display: block;">Investimento</span>
-    <h2>Prezzi trasparenti,<br>ricordi per sempre</h2>
-    <p>L'affitto di SaSida Country per il ricevimento di nozze comprende l'utilizzo esclusivo di tutti gli spazi interni ed esterni, con accesso all'uliveto e alla vigna per foto e passeggiata degli ospiti.</p>
-    <div class="deco-line"><div class="deco-dot"></div></div>
-    <div class="price-range">
-      <div><div class="price-val">€1.500</div><div class="price-label">a partire da</div></div>
-      <div class="price-sep">—</div>
-      <div><div class="price-val">€4.500</div><div class="price-label">fino a</div></div>
-    </div>
-    <p style="font-size: 0.8rem; color: var(--text-light);">Il prezzo varia in base alla data, alla stagione e alla durata dell'evento.<br>Richiedeteci un preventivo personalizzato senza impegno.</p>
-    <br>
-    <a href="#contatti" class="btn-primary">Richiedi preventivo</a>
-  </div>
-</section>
-
+<!-- CONTACT -->
 <section class="contact" id="contatti">
   <div class="reveal">
     <span class="section-tag" style="color: var(--olive); display: block;">Contattateci</span>
     <h2>Iniziamo a costruire<br>il vostro <em>sogno</em></h2>
     <p>Siamo a vostra disposizione per mostrarvi la location e rispondere a tutte le vostre domande. Contatteci per verificare la disponibilità della data e ricevere un preventivo personalizzato.</p>
     <div class="contact-grid">
-      <div class="contact-item"><div class="contact-item-icon">📍</div><div class="contact-item-label">Posizione</div><div class="contact-item-value">Sanluri, Sardegna</div></div>
+      <div class="contact-item"><div class="contact-item-icon">📍</div><div class="contact-item-label">Posizione</div><div class="contact-item-value">Loc. Bruncu Sa Sida<br>Sanluri, Cagliari</div></div>
       <div class="contact-item"><div class="contact-item-icon">📱</div><div class="contact-item-label">Instagram</div><div class="contact-item-value">@sasidacountryside</div></div>
       <div class="contact-item"><div class="contact-item-icon">💒</div><div class="contact-item-label">Specialità</div><div class="contact-item-value">Matrimoni & eventi</div></div>
     </div>
@@ -141,7 +212,6 @@
     <li><a href="#storia">Chi siamo</a></li>
     <li><a href="#spazi">Spazi</a></li>
     <li><a href="#servizi">Servizi</a></li>
-    <li><a href="#prezzi">Prezzi</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
   <div class="footer-copy">© 2025 SaSida Country · Sanluri, Sardegna</div>

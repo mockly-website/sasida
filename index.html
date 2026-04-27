@@ -11,6 +11,7 @@
 
 <nav id="nav">
   <div class="nav-logo">
+    <a href="     
     <img src="logo.jpg" alt="SaSida Country">
   </div>
   <ul class="nav-links">
@@ -19,7 +20,20 @@
     <li><a href="#servizi">Servizi</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
+  <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MENU MOBILE OVERLAY -->
+<div class="menu-overlay" id="menuOverlay">
+  <ul>
+    <li><a href="#storia">Storia</a></li>
+    <li><a href="#spazi">Spazi</a></li>
+    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+  </ul>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -102,16 +116,6 @@
           <div class="space-desc">Scorci naturali unici per foto e momenti magici nella campagna sarda</div>
         </div>
       </div>
-      <!-- Slot extra 1 – aggiungere immagine -->
-      <div class="space-card extra-img-slot">
-        <span>＋</span>
-        <span>Aggiungi foto</span>
-      </div>
-      <!-- Slot extra 2 – aggiungere immagine -->
-      <div class="space-card extra-img-slot">
-        <span>＋</span>
-        <span>Aggiungi foto</span>
-      </div>
     </div>
   </div>
 </section>
@@ -132,17 +136,13 @@
   </div>
 </section>
 
-<!-- GALLERY STRIP – 5 foto reali + 3 slot vuoti -->
-<div class="gallery-strip" style="grid-template-columns: repeat(8,1fr); height:300px;">
+<!-- GALLERY STRIP -->
+<div class="gallery-strip">
   <div><img src="img1.jpg" alt="gallery 1"></div>
   <div><img src="salotto.jpg" alt="gallery 2"></div>
   <div><img src="sfondo.jpg" alt="gallery 3"></div>
   <div><img src="altos.jpg" alt="gallery 4"></div>
   <div><img src="pizza.jpg" alt="gallery 5"></div>
-  <!-- Slot vuoti per future immagini -->
-  <div class="gallery-slot"><span>＋</span><span>Foto</span></div>
-  <div class="gallery-slot"><span>＋</span><span>Foto</span></div>
-  <div class="gallery-slot"><span>＋</span><span>Foto</span></div>
 </div>
 
 <!-- CONTACT -->

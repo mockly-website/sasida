@@ -81,7 +81,7 @@ nav.scrolled .nav-links a:hover { color: var(--olive); }
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(20,20,16,0.65) 0%, rgba(20,20,16,0.45) 50%, rgba(20,20,16,0.75) 100%),
-    url('https://cdn0.matrimonio.com/vendor/9635/3_2/960/jpg/-dsc5922_2_399635-174531004027713.jpeg') center/cover no-repeat;
+    url('sfondo.jpg') center/cover no-repeat;
 }
 .hero-content {
   position: relative;
@@ -673,11 +673,69 @@ footer {
     color: rgba(255,255,255,0.3);
   }
 
+/* HAMBURGER MENU */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: rgba(255,255,255,0.85);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+nav.scrolled .menu-toggle span { background: var(--text); }
+.menu-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20,20,16,0.97);
+  z-index: 150;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.menu-overlay.active {
+  opacity: 1;
+}
+.menu-overlay ul {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.menu-overlay ul a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color 0.3s;
+}
+.menu-overlay ul a:hover { color: var(--gold-light); }
+
 /* MOBILE */
 @media (max-width: 768px) {
   nav { padding: 1.2rem 1.5rem; }
   nav.scrolled { padding: 0.8rem 1.5rem; }
   .nav-links { display: none; }
+  .menu-toggle { display: flex; }
+  .menu-overlay { display: flex; }
   .nav-logo img { height: 36px; }
   .hero-logo img { height: 68px; }
   .intro { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }

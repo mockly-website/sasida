@@ -29,8 +29,9 @@ const toggle = document.getElementById('menuToggle');
 const overlay = document.getElementById('menuOverlay');
 
 toggle.addEventListener('click', () => {
-  toggle.classList.toggle('active');
+  const isActive = toggle.classList.toggle('active');
   overlay.classList.toggle('active');
+  document.body.style.overflow = isActive ? 'hidden' : '';
 });
 
 /* chiudi menu quando clicchi link */
@@ -38,5 +39,6 @@ document.querySelectorAll('.menu-overlay a').forEach(link => {
   link.addEventListener('click', () => {
     toggle.classList.remove('active');
     overlay.classList.remove('active');
+    document.body.style.overflow = '';
   });
 });

@@ -45,6 +45,10 @@ nav.scrolled {
   filter: drop-shadow(0 1px 6px rgba(0,0,0,0.35));
   transition: filter 0.4s, opacity 0.4s;
 }
+.nav-logo a {
+  display: inline-block;
+  line-height: 0;
+}
 nav.scrolled .nav-logo img {
   filter: none;
 }
@@ -53,6 +57,7 @@ nav.scrolled .nav-logo img {
   gap: 2.5rem;
   list-style: none;
 }
+
 .nav-links a {
   font-size: 0.75rem;
   letter-spacing: 0.15em;

@@ -2,7 +2,7 @@
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 80);
-});
+}, { passive: true });
 
 // Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
@@ -16,15 +16,20 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
 
-// Smooth scroll for anchors
+// Smooth scroll per anchor — gestito via JS (evita bug iOS con scroll-behavior CSS)
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    if (target) {
+      const offset = nav.offsetHeight + 8;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   });
 });
 
+// Menu mobile
 const toggle = document.getElementById('menuToggle');
 const overlay = document.getElementById('menuOverlay');
 
@@ -34,7 +39,6 @@ toggle.addEventListener('click', () => {
   document.body.style.overflow = isActive ? 'hidden' : '';
 });
 
-/* chiudi menu quando clicchi link */
 document.querySelectorAll('.menu-overlay a').forEach(link => {
   link.addEventListener('click', () => {
     toggle.classList.remove('active');
@@ -42,6 +46,7 @@ document.querySelectorAll('.menu-overlay a').forEach(link => {
     document.body.style.overflow = '';
   });
 });
+
 // Lightbox
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
@@ -74,4 +79,34 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLb();
   if (e.key === 'ArrowRight') showNext();
   if (e.key === 'ArrowLeft') showPrev();
+});
+
+// Swipe touch sul lightbox (mobile)
+let touchStartX = 0;
+let touchStartY = 0;
+
+lightbox.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+lightbox.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+    if (dx < 0) showNext();
+    else showPrev();
+  }
+  if (dy > 80 && Math.abs(dy) > Math.abs(dx)) {
+    closeLb();
+  }
+}, { passive: true });
+
+// Protezione contenuti
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if (
+    (e.ctrlKey || e.metaKey) && ['s', 'u', 'p', 'c', 'a'].includes(e.key.toLowerCase())
+  ) e.preventDefault();
 });

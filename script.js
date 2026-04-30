@@ -102,6 +102,25 @@ lightbox.addEventListener('touchend', e => {
   }
 }, { passive: true });
 
+// Form submit
+function handleFormSubmit(btn) {
+  const card = btn.closest('.contact-form-card');
+  const inputs = card.querySelectorAll('.form-input');
+  let valid = true;
+  inputs.forEach(inp => {
+    if (inp.hasAttribute('placeholder') && inp.value.trim() === '' && inp !== card.querySelector('.form-textarea')) {
+      inp.style.borderColor = 'rgba(196,100,100,0.5)';
+      valid = false;
+    } else {
+      inp.style.borderColor = '';
+    }
+  });
+  if (!valid) return;
+  btn.textContent = '✓ Richiesta inviata!';
+  btn.style.background = 'var(--olive-dark)';
+  btn.disabled = true;
+}
+
 // Protezione contenuti
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('dragstart', e => e.preventDefault());

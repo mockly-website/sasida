@@ -1,3 +1,5 @@
+<!-- SA SIDA BY MOCKLYY -->
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -17,10 +19,10 @@
     </a>   
   </div>
   <ul class="nav-links">
-    <li><a href="#storia">Storia</a></li>
-    <li><a href="#servizi">Servizi</a></li>
-    <li><a href="#galleria">Galleria</a></li>
-    <li><a href="#contatti">Contatti</a></li>
+    <li><a href="#storia" data-section="storia">Storia</a></li>
+    <li><a href="#servizi" data-section="servizi">Servizi</a></li>
+    <li><a href="#galleria" data-section="galleria">Galleria</a></li>
+    <li><a href="#contatti" data-section="contatti">Contatti</a></li>
   </ul>
   <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">
     <div class="menu-toggle-lines">
@@ -74,21 +76,21 @@
 <!-- SERVICES -->
 <section class="services" id="servizi">
   <div class="section-header reveal">
-    <span class="section-tag" style="color: var(--olive)">I nostri servizi</span>
-    <h2 style="color: var(--dark)">Tutto per il vostro <em style="color: var(--olive)">giorno speciale</em></h2>
+    <span class="section-tag section-tag--olive">I nostri servizi</span>
+    <h2>Tutto per il vostro <em>giorno speciale</em></h2>
   </div>
   <div class="services-grid">
-    <div class="service-item reveal">
+    <div class="service-item reveal" data-delay="0">
       <div class="service-icon"><img src="img/calendario.png" alt="Spazio esclusivo" style="width:80px;height:80px;object-fit:contain;"></div>
       <div class="service-title">Spazio esclusivo</div>
       <div class="service-text">Un solo evento per data: avrà l'esclusività assoluta della location per un'esperienza intima e personale.</div>
     </div>
-    <div class="service-item reveal">
+    <div class="service-item reveal" data-delay="150">
       <div class="service-icon"><img src="img/olio.png" alt="Scenari naturali" style="width:80px;height:80px;object-fit:contain;"></div>
       <div class="service-title">Scenari naturali</div>
       <div class="service-text">Uliveto, vigna e macchia mediterranea come scenario naturale per foto dei vostri eventi uniche e di straordinaria bellezza. Spazi ampi per cerimonie anche sotto le stelle, nell'atmosfera romantica della campagna sarda.</div>
     </div>
-    <div class="service-item reveal">
+    <div class="service-item reveal" data-delay="300">
       <div class="service-icon"><img src="img/persone.png" alt="Fino a 150 ospiti" style="width:80px;height:80px;object-fit:contain;"></div>
       <div class="service-title">Fino a 150 ospiti</div>
       <div class="service-text">Capienza massima di 150 persone con ambienti versatili e comfort garantito per ogni tipologia di evento.</div>
@@ -99,35 +101,34 @@
 <!-- GALLERY -->
 <section class="photo-gallery" id="galleria">
   <div class="section-header reveal" style="padding: 0 3rem;">
-    <span class="section-tag" style="color: var(--gold)">I nostri momenti</span>
+    <span class="section-tag section-tag--gold">I nostri momenti</span>
     <h2>La <em>bellezza</em> di ogni dettaglio</h2>
   </div>
   <div class="photo-gallery-grid reveal">
-    <div class="pg-item" data-src="img/altos.jpg"><img src="img/altos.jpg" alt="Location allestita"></div>
-    <div class="pg-item" data-src="img/img1.jpg"><img src="img/img1.jpg" alt="Giardino con buffet"></div>
-    <div class="pg-item" data-src="img/img4.png"><img src="img/img4.png" alt="Fedi sposi"></div>
-    <div class="pg-item" data-src="img/img7.png"><img src="img/img7.png" alt="Tavolo con rami olivo"></div>
-    <div class="pg-item" data-src="img/img8.png"><img src="img/img8.png" alt="Bicchieri flute"></div>
-    <div class="pg-item" data-src="img/img10.png"><img src="img/img10.png" alt="Angolo fiori bianchi"></div>
-    <div class="pg-item" data-src="img/img11.png"><img src="img/img11.png" alt="Tavolo confetti"></div>
-    <div class="pg-item" data-src="img/img12.png"><img src="img/img12.png" alt="Tavolo allestito fiori"></div>
-    <div class="pg-item" data-src="img/img13.png"><img src="img/img13.png" alt="Buffet olio e pane"></div>
-    <div class="pg-item" data-src="img/img15.png"><img src="img/img15.png" alt="Buffet formaggi"></div>
-    <div class="pg-item" data-src="img/img16.png"><img src="img/img16.png" alt="Torta nuziale"></div>
-    <div class="pg-item" data-src="img/img17.png"><img src="img/img17.png" alt="Pizza artigianale"></div>
-    <div class="pg-item" data-src="img/img18.png"><img src="img/img18.png" alt="Fiori selvatici tavolo"></div>
-    <div class="pg-item" data-src="img/pizza.jpg"><img src="img/pizza1.jpg" alt="Pizza dal forno a legna"></div>
-    <div class="pg-item" data-src="img/img20.jpg"><img src="img/img20.jpg" alt="Salotto esterno rattan"></div>
-    <div class="pg-item" data-src="img/salotto.jpg"><img src="img/salotto.jpg" alt="Salotto esterno rattan"></div>
-    <div class="pg-item" data-src="img/pizza.jpg"><img src="img/pizza.jpg" alt="Pizza"></div>
+    <div class="pg-item" data-src="img/altos.jpg"><img src="img/altos.jpg" alt="Location allestita" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img1.jpg"><img src="img/img1.jpg" alt="Giardino con buffet" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img4.png"><img src="img/img4.png" alt="Fedi sposi" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img7.png"><img src="img/img7.png" alt="Tavolo con rami olivo" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img8.png"><img src="img/img8.png" alt="Bicchieri flute" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img10.png"><img src="img/img10.png" alt="Angolo fiori bianchi" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img11.png"><img src="img/img11.png" alt="Tavolo confetti" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img12.png"><img src="img/img12.png" alt="Tavolo allestito fiori" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img13.png"><img src="img/img13.png" alt="Buffet olio e pane" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img15.png"><img src="img/img15.png" alt="Buffet formaggi" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img16.png"><img src="img/img16.png" alt="Torta nuziale" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img17.png"><img src="img/img17.png" alt="Pizza artigianale" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img18.png"><img src="img/img18.png" alt="Fiori selvatici tavolo" loading="lazy"></div>
+    <div class="pg-item" data-src="img/pizza.jpg"><img src="img/pizza1.jpg" alt="Pizza dal forno a legna" loading="lazy"></div>
+    <div class="pg-item" data-src="img/img20.jpg"><img src="img/img20.jpg" alt="Salotto esterno rattan" loading="lazy"></div>
+    <div class="pg-item" data-src="img/salotto.jpg"><img src="img/salotto.jpg" alt="Salotto esterno rattan" loading="lazy"></div>
   </div>
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lbClose">✕</button>
-  <button class="lb-prev" id="lbPrev">&#8249;</button>
-  <button class="lb-next" id="lbNext">&#8250;</button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizzatore immagini">
+  <button class="lb-close" id="lbClose" aria-label="Chiudi">✕</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Immagine precedente">&#8249;</button>
+  <button class="lb-next" id="lbNext" aria-label="Immagine successiva">&#8250;</button>
   <img id="lbImg" src="" alt="">
 </div>
 
@@ -135,7 +136,7 @@
 <section class="contact" id="contatti">
   <div class="contact-inner reveal">
     <div class="contact-left">
-      <span class="section-tag" style="color: var(--olive); display: block;">Contattateci</span>
+      <span class="section-tag section-tag--olive section-tag--block">Contattateci</span>
       <h2>Il vostro giorno speciale<br>inizia da <em>qui</em></h2>
       <p>Scriveteci per verificare la disponibilità della vostra data e ricevere un preventivo personalizzato. Vi risponderemo entro 24 ore.</p>
       <div class="contact-info-list">
@@ -172,24 +173,28 @@
         <div class="contact-form-title">Richiedi disponibilità</div>
         <div class="contact-form-sub">Compilate il modulo e vi ricontatteremo entro 24 ore</div>
         <div class="form-group">
-          <label class="form-label">Nome e cognome</label>
-          <input type="text" class="form-input" placeholder="Es. Giulia Rossi">
+          <label class="form-label" for="f-nome">Nome e cognome</label>
+          <input id="f-nome" type="text" class="form-input" placeholder="Es. Giulia Rossi">
+          <span class="form-error" id="err-nome">Campo obbligatorio</span>
         </div>
         <div class="form-group">
-          <label class="form-label">Telefono / WhatsApp</label>
-          <input type="tel" class="form-input" placeholder="+39 XXX XXX XXXX">
+          <label class="form-label" for="f-tel">Telefono / WhatsApp</label>
+          <input id="f-tel" type="tel" class="form-input" placeholder="+39 XXX XXX XXXX">
+          <span class="form-error" id="err-tel">Campo obbligatorio</span>
         </div>
         <div class="form-group">
-          <label class="form-label">Data del matrimonio</label>
-          <input type="date" class="form-input form-date">
+          <label class="form-label" for="f-data">Data del matrimonio</label>
+          <input id="f-data" type="date" class="form-input form-date">
+          <span class="form-error" id="err-data">Campo obbligatorio</span>
         </div>
         <div class="form-group">
-          <label class="form-label">Numero di ospiti (circa)</label>
-          <input type="number" class="form-input" placeholder="Es. 80" min="1" max="150">
+          <label class="form-label" for="f-ospiti">Numero di ospiti (circa)</label>
+          <input id="f-ospiti" type="number" class="form-input" placeholder="Es. 80" min="1" max="150">
+          <span class="form-error" id="err-ospiti">Campo obbligatorio</span>
         </div>
         <div class="form-group">
-          <label class="form-label">Messaggio (opzionale)</label>
-          <textarea class="form-input form-textarea" placeholder="Raccontateci il vostro sogno…"></textarea>
+          <label class="form-label" for="f-msg">Messaggio (opzionale)</label>
+          <textarea id="f-msg" class="form-input form-textarea" placeholder="Raccontateci il vostro sogno…"></textarea>
         </div>
         <button class="btn-primary btn-form-submit" onclick="handleFormSubmit(this)">Invia richiesta</button>
       </div>
@@ -215,6 +220,11 @@
   </div>
   <div class="footer-copy">© 2025 SaSida Country · Made by Mockly.</div>
 </footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Torna in cima">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <!-- SCRIPTT-->
 <script src="script.js"></script>

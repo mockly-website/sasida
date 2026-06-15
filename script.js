@@ -1,37 +1,46 @@
-// SCRIPT X SA SIDA BY MOCKLY
-
-// Nav scroll effect
+// ── NAV SCROLL ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 80);
 }, { passive: true });
 
-// Reveal on scroll
+// ── PARALLAX HERO ──
+const heroBg = document.querySelector('.hero-bg');
+if (heroBg) {
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    heroBg.style.transform = `scale(1.08) translateY(${st * 0.08}px)`;
+  }, { passive: true });
+}
+
+// ── REVEAL ON SCROLL ──
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      observer.unobserve(entry.target);
+      const el = entry.target;
+      const delay = parseInt(el.dataset.delay) || 0;
+      setTimeout(() => el.classList.add('visible'), delay);
+      observer.unobserve(el);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
 reveals.forEach(el => observer.observe(el));
 
-// Smooth scroll per anchor — gestito via JS (evita bug iOS con scroll-behavior CSS)
+// ── SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
     const target = document.querySelector(a.getAttribute('href'));
     if (target) {
-      const offset = nav.offsetHeight + 8;
+      const offset = (nav.offsetHeight || 60) + 10;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     }
   });
 });
 
-// Menu mobile
+// ── MOBILE MENU ──
 const toggle = document.getElementById('menuToggle');
 const overlay = document.getElementById('menuOverlay');
 
@@ -49,34 +58,35 @@ document.querySelectorAll('.menu-overlay a').forEach(link => {
   });
 });
 
-// Lightbox
+// ── LIGHTBOX ──
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbClose = document.getElementById('lbClose');
 const lbPrev = document.getElementById('lbPrev');
 const lbNext = document.getElementById('lbNext');
-const pgItems = Array.from(document.querySelectorAll('.pg-item'));
+const lbCounter = document.getElementById('lbCounter');
+const gmItems = Array.from(document.querySelectorAll('.gm-item'));
 let currentIdx = 0;
 
 function openLb(idx) {
   currentIdx = idx;
-  lbImg.src = pgItems[idx].dataset.src;
+  lbImg.src = gmItems[idx].dataset.src;
+  if (lbCounter) lbCounter.textContent = `${idx + 1} / ${gmItems.length}`;
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
-  // Sposta il focus sul pulsante di chiusura per accessibilità
   requestAnimationFrame(() => lbClose.focus());
 }
 function closeLb() {
   lightbox.classList.remove('active');
   document.body.style.overflow = '';
-  // Riporta il focus sull'item che ha aperto il lightbox
-  pgItems[currentIdx].focus();
+  gmItems[currentIdx] && gmItems[currentIdx].focus();
 }
-function showNext() { openLb((currentIdx + 1) % pgItems.length); }
-function showPrev() { openLb((currentIdx - 1 + pgItems.length) % pgItems.length); }
+function showNext() { openLb((currentIdx + 1) % gmItems.length); }
+function showPrev() { openLb((currentIdx - 1 + gmItems.length) % gmItems.length); }
 
-pgItems.forEach((item, i) => {
+gmItems.forEach((item, i) => {
   item.setAttribute('tabindex', '0');
+  item.setAttribute('role', 'button');
   item.addEventListener('click', () => openLb(i));
   item.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(i); }
@@ -93,90 +103,113 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') showPrev();
 });
 
-// Swipe touch sul lightbox (mobile)
+// Swipe
 let touchStartX = 0;
 let touchStartY = 0;
-
 lightbox.addEventListener('touchstart', e => {
   touchStartX = e.touches[0].clientX;
   touchStartY = e.touches[0].clientY;
 }, { passive: true });
-
 lightbox.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - touchStartX;
   const dy = e.changedTouches[0].clientY - touchStartY;
   if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-    if (dx < 0) showNext();
-    else showPrev();
+    if (dx < 0) showNext(); else showPrev();
   }
-  if (dy > 80 && Math.abs(dy) > Math.abs(dx)) {
-    closeLb();
-  }
+  if (dy > 80 && Math.abs(dy) > Math.abs(dx)) closeLb();
 }, { passive: true });
 
-// Form — listener per rimozione errori all'input (inizializzato una volta sola)
-document.querySelectorAll('#f-nome, #f-tel, #f-data, #f-ospiti').forEach(inp => {
-  inp.addEventListener('input', () => inp.closest('.form-group').classList.remove('has-error'));
-});
+// ── COUNTER ANIMATION ──
+function animateCounter(el) {
+  const target = parseInt(el.dataset.count);
+  if (!target) return;
+  const duration = 2000;
+  const step = Math.max(1, Math.floor(target / 60));
+  let current = 0;
+  const increment = () => {
+    current += step;
+    if (current >= target) { el.textContent = target; return; }
+    el.textContent = current;
+    requestAnimationFrame(increment);
+  };
+  increment();
+}
 
-// Form submit
-function handleFormSubmit(btn) {
-  const card = btn.closest('.contact-form-card');
-  const requiredInputs = [
-    card.querySelector('#f-nome'),
-    card.querySelector('#f-tel'),
-    card.querySelector('#f-data'),
-    card.querySelector('#f-ospiti')
-  ];
-
-  let valid = true;
-
-  requiredInputs.forEach(inp => {
-    const group = inp.closest('.form-group');
-    if (!inp.value.trim()) {
-      group.classList.add('has-error');
-      const err = group.querySelector('.form-error');
-      if (err) err.textContent = 'Campo obbligatorio';
-      valid = false;
-    } else {
-      group.classList.remove('has-error');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
     }
   });
+}, { threshold: 0.5 });
+document.querySelectorAll('.nature-stat-number[data-count]').forEach(el => counterObserver.observe(el));
 
-  // Validazione data: non può essere nel passato
+// ── FORM ──
+document.querySelectorAll('#f-nome, #f-email, #f-tel, #f-data, #f-ospiti, #f-privacy').forEach(inp => {
+  const ev = inp.type === 'checkbox' ? 'change' : 'input';
+  inp.addEventListener(ev, () => inp.closest('.form-group').classList.remove('has-error'));
+});
+
+function handleFormSubmit(form) {
+  const card = form.closest('.contact-form-card');
+  let valid = true;
+
+  const setError = (id, msg) => {
+    const inp = card.querySelector(id);
+    if (!inp) return;
+    inp.closest('.form-group').classList.add('has-error');
+    const err = inp.closest('.form-group').querySelector('.form-error');
+    if (err) err.textContent = msg;
+    valid = false;
+  };
+  const clearError = (id) => {
+    const inp = card.querySelector(id);
+    if (!inp) return;
+    inp.closest('.form-group').classList.remove('has-error');
+  };
+
+  const nome = card.querySelector('#f-nome').value.trim();
+  if (!nome) setError('#f-nome', 'Campo obbligatorio');
+  else clearError('#f-nome');
+
+  const email = card.querySelector('#f-email').value.trim();
+  if (!email) setError('#f-email', 'Campo obbligatorio');
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) setError('#f-email', 'Formato email non valido');
+  else clearError('#f-email');
+
+  const tel = card.querySelector('#f-tel').value.trim();
+  if (!tel) setError('#f-tel', 'Campo obbligatorio');
+  else if (!/^[+\d\s()-]{6,20}$/.test(tel)) setError('#f-tel', 'Numero non valido');
+  else clearError('#f-tel');
+
   const dataInp = card.querySelector('#f-data');
-  if (dataInp && dataInp.value) {
-    const selected = new Date(dataInp.value);
+  const dataVal = dataInp.value;
+  if (!dataVal) setError('#f-data', 'Campo obbligatorio');
+  else {
+    const selected = new Date(dataVal + 'T12:00:00');
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    if (selected < today) {
-      const group = dataInp.closest('.form-group');
-      group.classList.add('has-error');
-      const err = group.querySelector('.form-error');
-      if (err) err.textContent = 'La data non può essere nel passato';
-      valid = false;
-    }
+    if (selected < today) setError('#f-data', 'La data non può essere nel passato');
+    else clearError('#f-data');
   }
+
+  const ospiti = card.querySelector('#f-ospiti').value.trim();
+  if (!ospiti) setError('#f-ospiti', 'Campo obbligatorio');
+  else if (parseInt(ospiti) < 1 || parseInt(ospiti) > 150) setError('#f-ospiti', 'Inserisci tra 1 e 150');
+  else clearError('#f-ospiti');
+
+  const privacy = card.querySelector('#f-privacy');
+  if (!privacy.checked) setError('#f-privacy', 'Necessario per proseguire');
+  else clearError('#f-privacy');
 
   if (!valid) return;
 
-  // Salva i dati per la pagina di conferma
   sessionStorage.setItem('sasida_form', JSON.stringify({
-    nome:   card.querySelector('#f-nome').value.trim(),
-    tel:    card.querySelector('#f-tel').value.trim(),
-    data:   card.querySelector('#f-data').value,
-    ospiti: card.querySelector('#f-ospiti').value.trim()
+    nome, email, tel, data: dataVal, ospiti
   }));
-
-  // Reindirizza alla pagina di conferma
   window.location.href = 'grazie.html';
 }
-
-// ── STAGGER sui service card ──
-document.querySelectorAll('.service-item[data-delay]').forEach(card => {
-  const delay = parseInt(card.dataset.delay) || 0;
-  card.style.transitionDelay = delay + 'ms';
-});
 
 // ── BACK TO TOP ──
 const backToTop = document.getElementById('backToTop');
@@ -188,11 +221,11 @@ backToTop.addEventListener('click', () => {
 });
 
 // ── NAV ACTIVE SECTION ──
-const navSections = ['storia', 'servizi', 'galleria', 'contatti'];
+const navSections = ['storia', 'esperienze', 'galleria', 'contatti'];
 const navLinks = document.querySelectorAll('.nav-links a[data-section]');
 
 function updateActiveNav() {
-  const scrollMid = window.scrollY + window.innerHeight * 0.4;
+  const scrollMid = window.scrollY + window.innerHeight * 0.35;
   let current = '';
   navSections.forEach(id => {
     const el = document.getElementById(id);
@@ -205,25 +238,24 @@ function updateActiveNav() {
 window.addEventListener('scroll', updateActiveNav, { passive: true });
 updateActiveNav();
 
-// ── SECTION ARRIVAL FLASH ──
+// ── SECTION FLASH ──
 document.querySelectorAll('.nav-links a[data-section], .menu-overlay a').forEach(a => {
   a.addEventListener('click', () => {
     const targetId = a.getAttribute('href').replace('#', '');
     const target = document.getElementById(targetId);
     if (!target) return;
-    // aspetta la fine dello scroll prima di applicare il flash
     let scrollTimer;
     const onScroll = () => {
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => {
         window.removeEventListener('scroll', onScroll);
         target.classList.remove('section-flash');
-        void target.offsetWidth; // reflow
+        void target.offsetWidth;
         target.classList.add('section-flash');
         target.addEventListener('animationend', () => {
           target.classList.remove('section-flash');
         }, { once: true });
-      }, 80);
+      }, 100);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
   });

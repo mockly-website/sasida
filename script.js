@@ -84,35 +84,37 @@ gmItems.forEach((item, i) => {
   });
 });
 
-lbClose.addEventListener('click', closeLb);
-lbNext.addEventListener('click', showNext);
-lbPrev.addEventListener('click', showPrev);
+if (lbClose) lbClose.addEventListener('click', closeLb);
+if (lbNext) lbNext.addEventListener('click', showNext);
+if (lbPrev) lbPrev.addEventListener('click', showPrev);
 
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+if (lightbox) {
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+
+  // Touch swipe for lightbox
+  let touchStartX = 0;
+  let touchStartY = 0;
+  lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx < 0) showNext(); else showPrev();
+    }
+    if (dy > 80 && Math.abs(dy) > Math.abs(dx)) closeLb();
+  }, { passive: true });
+}
 
 document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('active')) return;
+  if (!lightbox || !lightbox.classList.contains('active')) return;
   if (e.key === 'Escape') closeLb();
   if (e.key === 'ArrowRight') showNext();
   if (e.key === 'ArrowLeft') showPrev();
 });
-
-// Touch swipe for lightbox
-let touchStartX = 0;
-let touchStartY = 0;
-lightbox.addEventListener('touchstart', e => {
-  touchStartX = e.touches[0].clientX;
-  touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-lightbox.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-    if (dx < 0) showNext(); else showPrev();
-  }
-  if (dy > 80 && Math.abs(dy) > Math.abs(dx)) closeLb();
-}, { passive: true });
 
 // COUNTER ANIMATION (fixed: matches HTML class)
 // FORM VALIDATION
@@ -184,9 +186,19 @@ function handleFormSubmit(form) {
 
 // BACK TO TOP
 const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  backToTop.classList.toggle('visible', window.scrollY > 400);
-}, { passive: true });
+const bttRing = backToTop?.querySelector('.btt-ring-progress');
+const bttMax = 131.95;
+
+function updateBtt() {
+  const y = window.scrollY;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? Math.min(y / h, 1) : 0;
+  backToTop.classList.toggle('visible', y > 100);
+  if (bttRing) bttRing.style.strokeDashoffset = bttMax * (1 - pct);
+}
+
+window.addEventListener('scroll', updateBtt, { passive: true });
+window.addEventListener('resize', updateBtt, { passive: true });
 
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });

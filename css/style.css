@@ -277,6 +277,7 @@ h2 em { font-style: italic; color: var(--gold-600); }
   font-size: .82rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase;
   color: var(--sand-300);
   margin-bottom: 1.2rem;
+  text-shadow: 0 1px 12px rgba(15, 18, 8, .55);
 }
 
 .hero__title {
@@ -284,6 +285,7 @@ h2 em { font-style: italic; color: var(--gold-600); }
   max-width: 15ch;
   margin: 0 auto 1.1rem;
   text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(15, 18, 8, .5);
 }
 
 .hero__sub {
@@ -291,6 +293,7 @@ h2 em { font-style: italic; color: var(--gold-600); }
   color: rgba(255, 253, 248, .88);
   max-width: 46ch;
   margin: 0 auto 2.2rem;
+  text-shadow: 0 2px 24px rgba(15, 18, 8, .5);
 }
 
 .hero__actions { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
@@ -956,6 +959,17 @@ h2 em { font-style: italic; color: var(--gold-600); }
 .footer__bottom a { color: rgba(255, 253, 248, .75); text-decoration: underline; }
 .footer__bottom a:hover { color: var(--gold-500); }
 
+.footer__socials a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255, 253, 248, .25);
+  border-radius: 50%;
+  color: var(--sand-200);
+  transition: border-color .25s, color .25s, transform .25s;
+}
+.footer__socials a:hover { border-color: var(--gold-500); color: var(--gold-500); transform: translateY(-2px); }
+.footer__socials svg { width: 19px; height: 19px; }
+
 /* ---------- Pagine legali (privacy, cookie) ---------- */
 body.page-legal .site-header {
   background: var(--sand-100);
@@ -1268,6 +1282,12 @@ body.page-legal .nav-toggle span { background: var(--ink); }
   .marquee__track { gap: 1.7rem; }
   .marquee__track span { font-size: 1rem; }
   .map-wrap iframe { height: 260px; }
+
+  /* Hero: scritte più leggibili e composte su telefono */
+  .hero__title { font-size: clamp(1.9rem, 8vw, 2.6rem); line-height: 1.12; margin-bottom: .9rem; }
+  .hero__sub { font-size: 1rem; line-height: 1.55; margin-bottom: 1.7rem; }
+  .hero__actions { gap: .65rem; }
+  .hero__badge { font-size: .8rem; padding: .5rem .95rem; gap: .45rem; margin-top: 2rem; }
 }
 
 @media (max-width: 400px) {

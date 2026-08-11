@@ -1036,6 +1036,11 @@ h2 em { font-style: italic; color: var(--gold-600); }
 .about__media.reveal, .about__media .reveal { transform: translateX(-40px); }
 .about__text .reveal { transform: translateY(30px); }
 .gallery-grid .reveal, .territorio__card.reveal, .space-card.reveal { transform: scale(.93) translateY(8px); }
+
+/* Quando un elemento è rivelato ogni variante torna a riposo */
+.reveal--left.in, .reveal--right.in, .reveal--zoom.in,
+.about__media.reveal.in, .about__media .reveal.in,
+.about__text .reveal.in,
 .gallery-grid .reveal.in, .territorio__card.reveal.in, .space-card.reveal.in { transform: none; }
 
 /* Linea dei passi che si disegna */

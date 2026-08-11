@@ -1115,6 +1115,14 @@ h2 em { font-style: italic; color: var(--gold-600); }
 
   .contatti__cta { justify-content: center; }
   .contatti__cta .btn { flex: 1 1 100%; }
+
+  /* Contatti: righe con icona centrate */
+  .contatti__address, .contatti__line { justify-content: center; text-align: center; }
+
+  /* Form centrato, campi sempre a tutta larghezza */
+  .contact-form { text-align: center; }
+  .contact-form .form-field label { text-align: center; }
+  .form-consent { justify-content: center; }
 }
 
 @media (max-width: 560px) {

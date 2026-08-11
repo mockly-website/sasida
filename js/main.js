@@ -177,8 +177,20 @@ var EMAIL = 'info@sasidacountry.it';
       });
     });
 
-  /* ---------------- Testimonianze ---------------- */
-  /* Griglia desktop statica; su mobile riga scorrevole con frecce (sopra). */
+  /* ---------------- Galleria: 6 scatti + "Altri scatti" ---------------- */
+  var galleryGrid = document.getElementById('gallery-grid');
+  var galleryMore = document.getElementById('gallery-more');
+  if (galleryGrid && galleryMore) {
+    var totalShots = galleryGrid.querySelectorAll('.gallery-item').length;
+    if (totalShots > 6) {
+      galleryGrid.classList.add('is-collapsed');
+      galleryMore.addEventListener('click', function () {
+        var collapsed = galleryGrid.classList.toggle('is-collapsed');
+        galleryMore.textContent = collapsed ? 'Altri scatti' : 'Mostra meno';
+        galleryMore.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg>');
+      });
+    }
+  }
 
   /* Linea dei passi: si disegna quando la sezione entra in vista */
   var stepsSection = document.querySelector('.steps');

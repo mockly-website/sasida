@@ -1,260 +1,864 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SaSida Country – Location Esclusiva per Matrimoni nella Campagna Sarda</title>
-<meta name="description" content="Nel cuore della Sardegna autentica, un uliveto secolare fa da cornice a matrimoni ed eventi esclusivi. Tra vigne, macchia mediterranea e cielo stellato. Fino a 150 ospiti.">
-<meta name="keywords" content="location matrimonio Sardegna, wedding venue Sardinia, evento esclusivo, uliveto matrimonio, Sanluri, campagna sarda, location natura">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="SaSida Country – Matrimoni nella Campagna Sarda">
-<meta property="og:description" content="Un uliveto secolare nel cuore della Sardegna autentica. Il luogo dove la natura incontra l'emozione del vostro giorno più bello.">
-<meta property="og:url" content="https://sasidacountry.it">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://sasidacountry.it/img/sasida.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="apple-touch-icon" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sa Sida Country | Location per matrimoni ed eventi a Sanluri, Sardegna</title>
+  <meta name="description" content="Location per matrimoni ed eventi immersa in un uliveto secolare a Sanluri, Sud Sardegna. Cerimonie civili, eventi privati e aziendali: un solo evento al giorno, fino a 150 invitati.">
+  <link rel="canonical" href="https://sasidacountry.it/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sasidacountry.it/">
+  <meta property="og:title" content="Sa Sida Country | Location per matrimoni a Sanluri, Sardegna">
+  <meta property="og:description" content="Il tuo matrimonio immerso nell'uliveto sardo. Un solo evento al giorno, fino a 150 invitati, nel cuore del Sud Sardegna.">
+  <meta property="og:image" content="https://sasidacountry.it/img/hero-terrazza-tramonto.jpg">
+  <meta property="og:locale" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="img/hero-terrazza-tramonto.jpg" imagesrcset="img/hero-terrazza-tramonto-640.jpg 640w, img/hero-terrazza-tramonto.jpg 1280w" imagesizes="100vw">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org: LocalBusiness / EventVenue -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "EventVenue"],
+    "name": "Sa Sida Country",
+    "alternateName": "SaSida Country",
+    "description": "Location per matrimoni ed eventi esclusivi immersa in un uliveto secolare a Sanluri, Sud Sardegna. Un solo evento al giorno, fino a 150 invitati.",
+    "url": "https://sasidacountry.it",
+    "image": "https://sasidacountry.it/img/hero-terrazza-tramonto.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bruncu Sa Sida",
+      "addressLocality": "Sanluri",
+      "addressRegion": "Sud Sardegna",
+      "postalCode": "09025",
+      "addressCountry": "IT"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 39.567, "longitude": 8.897 },
+    "sameAs": ["https://www.instagram.com/sasidacountryside/"],
+    "priceRange": "€€",
+    "telephone": "+39 000 000 0000"
+  }
+  </script>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-logo">
-    <a href="index.html">
-      <img src="img/logo.png" alt="SaSida Country" loading="lazy">
-    </a>
-  </div>
-  <ul class="nav-links">
-    <li><a href="storia.html">Storia</a></li>
-    <li><a href="esperienze.html">Servizi</a></li>
-    <li><a href="galleria.html">Galleria</a></li>
-    <li><a href="contatti.html">Contatti</a></li>
-  </ul>
-  <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">
-    <div class="menu-toggle-lines">
-      <span></span><span></span><span></span>
-    </div>
-    <span class="menu-toggle-label">Menu</span>
-  </button>
-</nav>
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
-<!-- MENU MOBILE OVERLAY -->
-<div class="menu-overlay" id="menuOverlay">
-  <ul>
-    <li><a href="storia.html">Storia</a></li>
-    <li><a href="esperienze.html">Servizi</a></li>
-    <li><a href="galleria.html">Galleria</a></li>
-    <li><a href="contatti.html">Contatti</a></li>
-  </ul>
-</div>
+  <!-- ============================================================
+       DATI DA CONFERMARE COL CLIENTE PRIMA DELLA PUBBLICAZIONE
+       1. Telefono reale        -> cerca "000 000 0000" (header, contatti, JSON-LD, js/main.js)
+       2. Email reale           -> cerca "info@sasidacountry.it"
+       3. Numero WhatsApp       -> WA_NUMBER in js/main.js
+       4. Fascia prezzo         -> FAQ 8 (1.500-4.500 €, non pubblicare senza conferma)
+       5. Politica catering     -> card Spazi "Cucina" + FAQ 3 (convenzionati o libera scelta)
+       6. FAQ maltempo (FAQ 7) e cerimonia civile (FAQ 5)
+       7. Testimonianze reali   -> sezione "Testimonianze": 5 esempi creati
+                                (battesimo di Achille, 2 lauree, 2 matrimoni) da sostituire
+                                con le recensioni reali dei clienti
+       8. Foto mancanti: Vigna (card Spazi) — sostituire il placeholder con foto reale
+       ============================================================ -->
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1><span class="hero-title-main">SaSida</span> <em class="hero-title-em">Country</em></h1>
-    <div class="hero-divider"><span></span></div>
-    <p class="hero-sub">Tra ulivi secolari e macchia mediterranea, il vostro giorno più bello.</p>
-    <a href="contatti.html" class="hero-cta">
-      <span>Richiedi disponibilità</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-  </div>
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
-  </div>
-</section>
-
-<div class="wave-divider" aria-hidden="true" style="height:70px;">
-  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
-    <defs>
-      <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#1e1e1a" stop-opacity="0.1"/>
-        <stop offset="100%" stop-color="#faf7f2" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z" fill="url(#g)"/>
-  </svg>
-</div>
-<section class="emotion reveal">
-  <div class="emotion-content">
-    <div class="emotion-mark" aria-hidden="true">"</div>
-    <div class="emotion-body">
-      <span class="emotion-tag">L'essenza della Sardegna</span>
-      <p>
-        Non è solo una location.<br>
-        È il respiro della macchia mediterranea,<br>
-        il fruscio degli ulivi,<br>
-        il luogo dove la vostra storia <em>fiorisce</em>.
-      </p>
-    </div>
-    <div class="emotion-mark emotion-mark--end" aria-hidden="true">"</div>
-  </div>
-</section>
-
-<div class="wave-divider" aria-hidden="true" style="height:70px;">
-  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
-    <defs>
-      <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#faf7f2" stop-opacity="0"/>
-        <stop offset="100%" stop-color="#1e1e1a" stop-opacity="0.1"/>
-      </linearGradient>
-    </defs>
-    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z" fill="url(#g)"/>
-  </svg>
-</div>
-<section class="previews section-dark">
-  <div class="section-header reveal">
-    <span class="section-tag section-tag--olive">Scopri SaSida</span>
-    <h2>Un luogo, tante <em>emozioni</em></h2>
-    <p class="section-desc">Dalla storia della nostra terra alle esperienze che vivremo insieme, ogni pagina racconta un pezzo del vostro giorno speciale.</p>
-  </div>
-  <div class="previews-grid">
-    <a href="storia.html" class="preview-card reveal" data-delay="0">
-      <div class="preview-card-img">
-        <img src="img/sasida.jpg" alt="La nostra storia" loading="lazy">
-      </div>
-      <div class="preview-card-body">
-        <span class="preview-card-tag">Storia</span>
-        <h3>La nostra storia</h3>
-        <p>Dove la terra incontra il cielo. Scoprite come nasce SaSida Country.</p>
-        <span class="preview-card-link">Scopri di più →</span>
-      </div>
-    </a>
-    <a href="esperienze.html" class="preview-card reveal" data-delay="150">
-      <div class="preview-card-img">
-        <img src="img/altos.jpg" alt="Le esperienze" loading="lazy">
-      </div>
-      <div class="preview-card-body">
-        <span class="preview-card-tag">Esperienze</span>
-        <h3>Le esperienze</h3>
-        <p>Tra uliveti, stelle e sapori autentici. Ogni evento è un viaggio nei sensi.</p>
-        <span class="preview-card-link">Scopri di più →</span>
-      </div>
-    </a>
-    <a href="galleria.html" class="preview-card reveal" data-delay="300">
-      <div class="preview-card-img">
-        <img src="img/img7.png" alt="Galleria" loading="lazy">
-      </div>
-      <div class="preview-card-body">
-        <span class="preview-card-tag">Galleria</span>
-        <h3>I nostri momenti</h3>
-        <p>La poesia della natura in ogni scatto. Lasciatevi ispirare.</p>
-        <span class="preview-card-link">Scopri di più →</span>
-      </div>
-    </a>
-  </div>
-</section>
-
-<div class="wave-divider" aria-hidden="true" style="height:70px;">
-  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
-    <defs>
-      <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#1e1e1a" stop-opacity="0.1"/>
-        <stop offset="100%" stop-color="#faf7f2" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z" fill="url(#g)"/>
-  </svg>
-</div>
-<section class="services-preview">
-  <div class="section-header reveal">
-    <span class="section-tag section-tag--olive">I servizi</span>
-    <h2>Tutto per il vostro<br><em>giorno speciale</em></h2>
-    <p class="section-desc">Dalla cerimonia all'ultimo ballo, ogni dettaglio è pensato per rendere il vostro evento unico e indimenticabile.</p>
-  </div>
-  <div class="services-preview-grid">
-    <div class="services-preview-item reveal" data-delay="0">
-      <div class="services-preview-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      </div>
-      <h3>Capacità</h3>
-      <p>Fino a 150 ospiti in un ambiente esclusivo, per vivere il vostro giorno nella massima intimità.</p>
-    </div>
-    <div class="services-preview-item reveal" data-delay="100">
-      <div class="services-preview-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </div>
-      <h3>Catering</h3>
-      <p>I migliori caterer della Sardegna per un'esperienza gastronomica tra tradizione e innovazione.</p>
-    </div>
-    <div class="services-preview-item reveal" data-delay="200">
-      <div class="services-preview-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      </div>
-      <h3>Allestimenti</h3>
-      <p>Ogni dettaglio curato con passione, dalle luci tra gli alberi ai tavoli sotto le stelle.</p>
-    </div>
-    <div class="services-preview-item reveal" data-delay="300">
-      <div class="services-preview-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-      </div>
-      <h3>Fotografia</h3>
-      <p>Scenari naturali che incorniciano ogni scatto. L'uliveto, la vigna, il tramonto sardo.</p>
-    </div>
-  </div>
-  <div class="services-preview-cta reveal">
-    <a href="esperienze.html" class="btn-primary">
-      <span>Scopri tutti i servizi</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-main">
-    <div class="footer-brand">
-      <div class="footer-logo">SaSida Country</div>
-      <div class="footer-tagline">Nel cuore della Sardegna autentica.</div>
-    </div>
-    <ul class="footer-links">
-      <li><a href="storia.html">Storia</a></li>
-      <li><a href="esperienze.html">Servizi</a></li>
-      <li><a href="galleria.html">Galleria</a></li>
-      <li><a href="contatti.html">Contatti</a></li>
-    </ul>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/sasidacountryside/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="Sa Sida Country — Home">
+        <img class="logo-img" src="img/logo.png" alt="Sa Sida Country" width="40" height="40" fetchpriority="high">
+        <span class="logo-name">Sa Sida <em>Country</em></span>
       </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#spazi" class="nav-link">Gli Spazi</a></li>
+          <li><a href="#galleria" class="nav-link">Galleria</a></li>
+          <li><a href="#come-funziona" class="nav-link">Come Funziona</a></li>
+          <li><a href="#contatti" class="nav-link">Contatti</a></li>
+          <li class="nav-cta-mobile"><a href="#contatti" class="btn btn--gold btn--sm">Richiedi preventivo</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contatti" class="btn btn--gold btn--sm header-cta">Richiedi preventivo</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Apri il menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </div>
-    <div class="footer-meta">
-    <a href="privacy.html" class="footer-meta-link">Privacy</a>
-    <span class="footer-meta-sep">·</span>
-    <a href="cookie.html" class="footer-meta-link">Cookie</a>
-  </div><div class="footer-bottom">
-    <span>© 2025 SaSida Country</span>
-    <span class="footer-credit">Made with <span class="footer-heart">cura</span> by <a href="https://mockly.it" target="_blank" rel="noopener">Mockly</a>.</span>
-  </div>
-<p class="footer-credit">Realizzato da <a href="https://mockly.it" target="_blank" rel="noopener">Mockly</a></p>
-</footer>
+  </header>
 
-<!-- BACK TO TOP -->
-<button class="back-to-top" id="backToTop" aria-label="Torna in cima">
-  <svg class="btt-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="12" y1="20" x2="12" y2="4"/>
-    <polyline points="18 10 12 4 6 10"/>
-  </svg>
-  <svg class="btt-ring" width="48" height="48" viewBox="0 0 48 48">
-    <circle class="btt-ring-bg" cx="24" cy="24" r="21" fill="none" stroke="rgba(196,166,100,0.12)" stroke-width="2.5"/>
-    <circle class="btt-ring-progress" cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="131.95" stroke-dashoffset="131.95"/>
-  </svg>
-</button>
+  <main>
 
-<script src="script.js"></script>
-<!-- COOKIE BAR -->
-<div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Informativa cookie">
-  <p class="cookie-text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento del sito. <a href="cookie.html" class="cookie-link">Informativa</a>.</p>
-  <button class="cookie-btn" id="cookieAccept">OK</button>
-</div>
-<div class="mockly-watermark"><div class="mockly-watermark-inner">MOCKLY<span class="mockly-watermark-sub">SITO IN SVILUPPO</span></div></div>
+    <!-- ============ HERO (slideshow Ken Burns) ============ -->
+    <section class="hero" id="home">
+      <div class="hero__slides" aria-hidden="true">
+        <div class="hero__slide is-active" style="background-image:url('img/hero-terrazza-tramonto.jpg')"></div>
+        <div class="hero__slide" style="background-image:url('img/hero/sasida.webp')"></div>
+        <div class="hero__slide" style="background-image:url('img/hero/img1.webp')"></div>
+        <div class="hero__slide" style="background-image:url('img/hero/sfondo.webp')"></div>
+        <div class="hero__slide" style="background-image:url('img/galleria/14-ricevimento.jpg')"></div>
+        <div class="hero__slide" style="background-image:url('img/hero/altos.webp')"></div>
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="hero__eyebrow reveal reveal--d1">Bruncu Sa Sida &middot; Sanluri — Sud Sardegna</p>
+        <h1 class="hero__title reveal reveal--d2">Il vostro
+          <span class="rotator" id="hero-rotator" aria-hidden="true">
+            <span class="rotator__word is-on">matrimonio</span>
+            <span class="rotator__word">evento</span>
+            <span class="rotator__word">ricevimento</span>
+            <span class="rotator__word">banchetto</span>
+            <span class="rotator__word">giorno</span>
+          </span>
+          immerso nell'uliveto sardo</h1>
+        <div class="hero__flourish" aria-hidden="true"></div>
+        <p class="hero__sub reveal reveal--d3">Una location esclusiva tra ulivi secolari, vigna e cielo aperto.
+          Matrimoni, cerimonie civili ed eventi privati, fino a 150 invitati.</p>
+        <div class="hero__actions reveal reveal--d3">
+          <a href="#contatti" class="btn btn--gold btn--lg">Richiedi un preventivo</a>
+          <a href="#spazi" class="btn btn--ghost btn--lg">Scopri gli spazi</a>
+        </div>
+        <p class="hero__badge reveal reveal--d3">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6L12 14.2l-5 2.9 1.2-5.6L4 7.8l5.6-.6L12 2z"/></svg>
+          Un solo evento al giorno — lo spazio è tutto vostro
+        </p>
+      </div>
+      <div class="hero__slides-nav" id="hero-slides-nav" aria-hidden="true"></div>
+      <a href="#about" class="hero__scroll" aria-label="Scorri verso il basso"><span></span></a>
+    </section>
+
+    <!-- ============ MARQUEE: tipi di evento ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marquee-track">
+        <span>Matrimoni</span><i>&#10022;</i>
+        <span>Cerimonie civili</span><i>&#10022;</i>
+        <span>Eventi privati</span><i>&#10022;</i>
+        <span>Feste di famiglia</span><i>&#10022;</i>
+        <span>Anniversari</span><i>&#10022;</i>
+        <span>Eventi aziendali</span><i>&#10022;</i>
+        <span>Proposte</span><i>&#10022;</i>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <figure class="about__media reveal">
+          <img src="img/galleria/14-ricevimento-640.jpg"
+               srcset="img/galleria/14-ricevimento-640.jpg 640w, img/galleria/14-ricevimento.jpg 1600w"
+               sizes="(max-width: 900px) 100vw, 560px"
+               alt="Allestimento del ricevimento a Sa Sida Country" loading="lazy" width="1600" height="1066">
+        </figure>
+        <div class="about__text">
+          <p class="eyebrow reveal">Benvenuti a Sa Sida</p>
+          <h2 class="reveal">Un uliveto che vi aspetta, <em>lontano dal caos</em></h2>
+          <p class="reveal">Sa Sida Country è una location per matrimoni ed eventi immersa in un uliveto secolare,
+            a pochi minuti dal centro di Sanluri, nel cuore del Sud Sardegna. Cerimonie civili, ricevimenti, feste di famiglia
+            ed eventi aziendali: qui il tempo segue il ritmo della campagna, tra tavoli all'aperto,
+            luci calde della sera e la luce dorata del tramonto.</p>
+          <p class="reveal">Nessun pacchetto preconfezionato, nessun doppio evento: quando ci siete voi,
+            lo spazio è solo vostro, dall'aperitivo fino all'ultimo brindisi.</p>
+          <ul class="about__list reveal">
+            <li>Un solo evento al giorno</li>
+            <li>Fino a 150 invitati</li>
+            <li>Spazi coperti e all'aperto</li>
+            <li>Cucina attrezzata per il vostro catering</li>
+          </ul>
+          <a href="#spazi" class="btn btn--dark reveal">Scopri gli spazi</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GLI SPAZI ============ -->
+    <section class="section spazi" id="spazi">
+      <span class="section-mark" aria-hidden="true">Sa Sida</span>
+      <div class="container">
+        <p class="eyebrow reveal">Gli spazi</p>
+        <h2 class="reveal">Ogni angolo racconta <em>una parte della vostra giornata</em></h2>
+        <p class="section-intro reveal">Dall'aperitivo sotto gli ulivi al ricevimento sotto le stelle:
+          tocca a voi scegliere la scenografia. <em>Tocca una foto per vederla a tutto schermo.</em></p>
+
+        <div class="spazi__grid">
+          <figure class="space-card reveal" data-gallery-full="img/spazi/uliveto.jpg">
+            <img src="img/spazi/uliveto-640.jpg"
+                 srcset="img/spazi/uliveto-640.jpg 640w, img/spazi/uliveto.jpg 1600w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="Un uliveto secolare immerso nella campagna sarda" loading="lazy" width="1920" height="1574">
+            <figcaption class="space-card__caption">
+              <h3>Uliveto secolare</h3>
+              <p>Centinaia di ulivi fanno da cornice all'aperitivo e alla passeggiata degli ospiti.</p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+
+          <figure class="space-card reveal" data-gallery="g-02">
+            <img src="img/galleria/02-giardini-640.jpg"
+                 srcset="img/galleria/02-giardini-640.jpg 640w, img/galleria/02-giardini.jpg 1280w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="Il garden principale" loading="lazy" width="1280" height="853">
+            <figcaption class="space-card__caption">
+              <h3>Garden principale</h3>
+              <p>Il cuore verde della location, tra prati curati e angoli d'ombra per il ricevimento.</p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+
+          <figure class="space-card reveal" data-gallery="g-01">
+            <img src="img/galleria/01-terrazza-640.jpg"
+                 srcset="img/galleria/01-terrazza-640.jpg 640w, img/galleria/01-terrazza.jpg 1280w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="La terrazza al tramonto" loading="lazy" width="1280" height="853">
+            <figcaption class="space-card__caption">
+              <h3>Terrazza</h3>
+              <p>La terrazza sul tramonto: l'ideale per l'aperitivo e per le foto al calar del sole.</p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+
+          <figure class="space-card reveal" data-gallery="g-10">
+            <img src="img/galleria/10-aperitivo-640.jpg"
+                 srcset="img/galleria/10-aperitivo-640.jpg 640w, img/galleria/10-aperitivo.jpg 1280w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="L'aperitivo all'aperto a Sa Sida Country" loading="lazy" width="1280" height="853">
+            <figcaption class="space-card__caption">
+              <h3>Vigna &amp; aperitivo</h3>
+              <p>Un angolo di campagna sarda per l'aperitivo e i momenti informali della giornata.</p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+
+          <figure class="space-card reveal" data-gallery="g-03">
+            <img src="img/galleria/03-tensostruttura-640.jpg"
+                 srcset="img/galleria/03-tensostruttura-640.jpg 640w, img/galleria/03-tensostruttura.jpg 1280w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="Le tensostrutture per il ricevimento" loading="lazy" width="1280" height="853">
+            <figcaption class="space-card__caption">
+              <h3>Tensostrutture</h3>
+              <p>Il ricevimento coperto, elegante e al riparo dal meteo, a due passi dal verde.</p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+
+          <figure class="space-card reveal" data-gallery="g-11">
+            <img src="img/galleria/11-cozy-corner-640.jpg"
+                 srcset="img/galleria/11-cozy-corner-640.jpg 640w, img/galleria/11-cozy-corner.jpg 1206w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="Il cozy corner" loading="lazy" width="1206" height="804">
+            <figcaption class="space-card__caption">
+              <h3>Cozy Corner</h3>
+              <p>Lounge con luci calde e divani, per le chiacchiere tra un ballo e l'altro.</p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+
+          <figure class="space-card reveal" data-gallery="g-09">
+            <img src="img/galleria/09-cerimonia-640.jpg"
+                 srcset="img/galleria/09-cerimonia-640.jpg 640w, img/galleria/09-cerimonia.jpg 1137w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="Lo spazio dedicato alla cerimonia civile" loading="lazy" width="1137" height="758">
+            <figcaption class="space-card__caption">
+              <h3>Spazio cerimonia civile</h3>
+              <p>Un angolo dedicato al sì, all'aperto, con la campagna come unico sfondo.</p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+
+          <figure class="space-card reveal" data-gallery-full="img/spazi/cucina.jpg">
+            <img src="img/spazi/cucina-640.jpg"
+                 srcset="img/spazi/cucina-640.jpg 640w, img/spazi/cucina.jpg 1600w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="La cucina professionale attrezzata per il catering" loading="lazy" width="1920" height="1280">
+            <figcaption class="space-card__caption">
+              <h3>Cucina attrezzata</h3>
+              <p>Cucina professionale pronta per il vostro catering: la scelta del menu resta libera.<br><small>Da confermare: catering convenzionati o libera scelta.</small></p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+
+          <figure class="space-card reveal" data-gallery="g-04">
+            <img src="img/galleria/04-ingresso-640.jpg"
+                 srcset="img/galleria/04-ingresso-640.jpg 640w, img/galleria/04-ingresso.jpg 1920w"
+                 sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="L'ingresso e il parcheggio privato" loading="lazy" width="1920" height="1280">
+            <figcaption class="space-card__caption">
+              <h3>Ingresso &amp; parcheggio</h3>
+              <p>Parcheggio privato ampio e ingresso autonomo: gli ospiti arrivano senza pensieri.</p>
+            </figcaption>
+          <span class="space-card__view" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NUMERI E SERVIZI ============ -->
+    <section class="section numeri" id="numeri">
+      <div class="container">
+        <p class="eyebrow reveal">Perché sceglierci</p>
+        <h2 class="reveal">I numeri che contano, prima delle foto</h2>
+        <div class="numeri__grid">
+          <div class="num-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M2.8 20c.6-3.4 3-5.2 6.2-5.2s5.6 1.8 6.2 5.2"/><circle cx="17" cy="9" r="2.6"/><path d="M16.6 14.4c2.4.4 4 2 4.6 4.6"/></svg>
+            <p class="num-card__value" data-count="150">150</p>
+            <p class="num-card__label">invitati, al massimo</p>
+          </div>
+          <div class="num-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 5V3m8 2V3M4 10h16"/></svg>
+            <p class="num-card__value" data-count="1">1</p>
+            <p class="num-card__label">solo evento al giorno: la location è vostra</p>
+          </div>
+          <div class="num-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg>
+            <p class="num-card__value" data-count="0">0</p>
+            <p class="num-card__label">pacchetti preconfezionati: il menu lo scegliete col vostro catering</p>
+          </div>
+          <div class="num-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 18v-4a8 8 0 0 1 16 0v4"/><path d="M4 18h2v4H4zM18 18h2v4h-2z"/></svg>
+            <p class="num-card__value">Privato</p>
+            <p class="num-card__label">parcheggio ampio e gratuito per gli ospiti</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERIA ============ -->
+    <section class="section galleria" id="galleria">
+      <span class="section-mark" aria-hidden="true">Country</span>
+      <div class="container">
+        <p class="eyebrow reveal">Galleria</p>
+        <h2 class="reveal">Giornate vere, raccontate da chi le ha vissute qui</h2>
+        <p class="section-intro reveal">Allestimenti, dettagli e momenti di eventi reali a Sa Sida.
+          Tocca una foto per ingrandirla.</p>
+
+        <div class="gallery-grid" id="gallery-grid">
+
+          <figure class="gallery-item reveal" id="g-video" data-gallery-caption="Il filmato completo è sul nostro Instagram @sasidacountryside">
+            <a href="https://www.instagram.com/sasidacountryside/" target="_blank" rel="noopener" aria-label="Guarda il video di Sa Sida Country su Instagram">
+              <img src="img/video-poster-640.jpg" srcset="img/video-poster-640.jpg 640w, img/video-poster.jpg 853w" sizes="(max-width: 720px) 100vw, 33vw" alt="Video racconto di Sa Sida Country" loading="lazy" width="853" height="480">
+              <span class="gallery-item__play">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg>
+              </span>
+              <figcaption class="gallery-item__tag">Video — guarda su Instagram</figcaption>
+            </a>
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-01" data-gallery-full="img/galleria/01-terrazza.jpg" data-gallery-caption="La terrazza, al tramonto">
+            <img src="img/galleria/01-terrazza-640.jpg" srcset="img/galleria/01-terrazza-640.jpg 640w, img/galleria/01-terrazza.jpg 1280w" sizes="(max-width: 720px) 100vw, 33vw" alt="La terrazza di Sa Sida Country al tramonto" loading="lazy" width="1280" height="853">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-09" data-gallery-full="img/galleria/09-cerimonia.jpg" data-gallery-caption="La cerimonia civile immersa nel verde">
+            <img src="img/galleria/09-cerimonia-640.jpg" srcset="img/galleria/09-cerimonia-640.jpg 640w, img/galleria/09-cerimonia.jpg 1137w" sizes="(max-width: 720px) 100vw, 33vw" alt="La cerimonia civile a Sa Sida Country" loading="lazy" width="1137" height="758">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-18" data-gallery-full="img/galleria/18-tavolo-sposi.jpg" data-gallery-caption="Il tavolo degli sposi">
+            <img src="img/galleria/18-tavolo-sposi-640.jpg" srcset="img/galleria/18-tavolo-sposi-640.jpg 640w, img/galleria/18-tavolo-sposi.jpg 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Il tavolo degli sposi a Sa Sida Country" loading="lazy" width="1600" height="1066">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-06" data-gallery-full="img/galleria/06-dettagli.jpg" data-gallery-caption="Dettagli d'allestimento">
+            <img src="img/galleria/06-dettagli-640.jpg" srcset="img/galleria/06-dettagli-640.jpg 640w, img/galleria/06-dettagli.jpg 1138w" sizes="(max-width: 720px) 100vw, 33vw" alt="Dettagli d'allestimento" loading="lazy" width="1138" height="758">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-10" data-gallery-full="img/galleria/10-aperitivo.jpg" data-gallery-caption="L'aperitivo sotto gli alberi">
+            <img src="img/galleria/10-aperitivo-640.jpg" srcset="img/galleria/10-aperitivo-640.jpg 640w, img/galleria/10-aperitivo.jpg 1280w" sizes="(max-width: 720px) 100vw, 33vw" alt="L'aperitivo a Sa Sida Country" loading="lazy" width="1280" height="853">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-20" data-gallery-full="img/galleria/20-sposi.jpg" data-gallery-caption="Gli sposi, nella luce della sera">
+            <img src="img/galleria/20-sposi-640.jpg" srcset="img/galleria/20-sposi-640.jpg 640w, img/galleria/20-sposi.jpg 1920w" sizes="(max-width: 720px) 100vw, 33vw" alt="Gli sposi a Sa Sida Country" loading="lazy" width="1920" height="1280">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-14" data-gallery-full="img/galleria/14-ricevimento.jpg" data-gallery-caption="Il ricevimento">
+            <img src="img/galleria/14-ricevimento-640.jpg" srcset="img/galleria/14-ricevimento-640.jpg 640w, img/galleria/14-ricevimento.jpg 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Il ricevimento a Sa Sida Country" loading="lazy" width="1600" height="1066">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-05" data-gallery-full="img/galleria/05-tavolo.jpg" data-gallery-caption="Allestimento del tavolo">
+            <img src="img/galleria/05-tavolo-640.jpg" srcset="img/galleria/05-tavolo-640.jpg 640w, img/galleria/05-tavolo.jpg 1280w" sizes="(max-width: 720px) 100vw, 33vw" alt="Allestimento del tavolo" loading="lazy" width="1280" height="853">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-02" data-gallery-full="img/galleria/02-giardini.jpg" data-gallery-caption="I giardini">
+            <img src="img/galleria/02-giardini-640.jpg" srcset="img/galleria/02-giardini-640.jpg 640w, img/galleria/02-giardini.jpg 1280w" sizes="(max-width: 720px) 100vw, 33vw" alt="I giardini di Sa Sida Country" loading="lazy" width="1280" height="853">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-19" data-gallery-full="img/galleria/19-taglio-torta.jpg" data-gallery-caption="Il taglio della torta">
+            <img src="img/galleria/19-taglio-torta-640.jpg" srcset="img/galleria/19-taglio-torta-640.jpg 640w, img/galleria/19-taglio-torta.jpg 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Il taglio della torta" loading="lazy" width="1600" height="1066">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-16" data-gallery-full="img/galleria/16-banchetti.jpg" data-gallery-caption="I banchetti sotto le tensostrutture">
+            <img src="img/galleria/16-banchetti-640.jpg" srcset="img/galleria/16-banchetti-640.jpg 640w, img/galleria/16-banchetti.jpg 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="I banchetti a Sa Sida Country" loading="lazy" width="1600" height="1066">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-11" data-gallery-full="img/galleria/11-cozy-corner.jpg" data-gallery-caption="Il cozy corner di sera">
+            <img src="img/galleria/11-cozy-corner-640.jpg" srcset="img/galleria/11-cozy-corner-640.jpg 640w, img/galleria/11-cozy-corner.jpg 1206w" sizes="(max-width: 720px) 100vw, 33vw" alt="Il cozy corner" loading="lazy" width="1206" height="804">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-03" data-gallery-full="img/galleria/03-tensostruttura.jpg" data-gallery-caption="La tensostruttura allestita">
+            <img src="img/galleria/03-tensostruttura-640.jpg" srcset="img/galleria/03-tensostruttura-640.jpg 640w, img/galleria/03-tensostruttura.jpg 1280w" sizes="(max-width: 720px) 100vw, 33vw" alt="La tensostruttura allestita" loading="lazy" width="1280" height="853">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-12" data-gallery-full="img/galleria/12-servizio.jpg" data-gallery-caption="Il servizio a tavola">
+            <img src="img/galleria/12-servizio-640.jpg" srcset="img/galleria/12-servizio-640.jpg 640w, img/galleria/12-servizio.jpg 1195w" sizes="(max-width: 720px) 100vw, 33vw" alt="Il servizio a tavola" loading="lazy" width="1195" height="797">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-17" data-gallery-full="img/galleria/17-paesaggio.jpg" data-gallery-caption="Il paesaggio attorno a Sa Sida">
+            <img src="img/galleria/17-paesaggio-640.jpg" srcset="img/galleria/17-paesaggio-640.jpg 640w, img/galleria/17-paesaggio.jpg 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Il paesaggio attorno a Sa Sida" loading="lazy" width="1600" height="1066">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-04" data-gallery-full="img/galleria/04-ingresso.jpg" data-gallery-caption="L'ingresso della location">
+            <img src="img/galleria/04-ingresso-640.jpg" srcset="img/galleria/04-ingresso-640.jpg 640w, img/galleria/04-ingresso.jpg 1920w" sizes="(max-width: 720px) 100vw, 33vw" alt="L'ingresso di Sa Sida Country" loading="lazy" width="1920" height="1280">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-13" data-gallery-full="img/galleria/13-dolci.jpg" data-gallery-caption="Dolci e tavolo dei dessert">
+            <img src="img/galleria/13-dolci-640.jpg" srcset="img/galleria/13-dolci-640.jpg 640w, img/galleria/13-dolci.jpg 1206w" sizes="(max-width: 720px) 100vw, 33vw" alt="Dolci a Sa Sida Country" loading="lazy" width="1206" height="804">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-08" data-gallery-full="img/galleria/08-angolo-relax.jpg" data-gallery-caption="L'angolo relax">
+            <img src="img/galleria/08-angolo-relax-640.jpg" srcset="img/galleria/08-angolo-relax-640.jpg 640w, img/galleria/08-angolo-relax.jpg 1206w" sizes="(max-width: 720px) 100vw, 33vw" alt="L'angolo relax" loading="lazy" width="1206" height="804">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-15" data-gallery-full="img/galleria/15-pecore.jpg" data-gallery-caption="Le pecore nel verde">
+            <img src="img/galleria/15-pecore-640.jpg" srcset="img/galleria/15-pecore-640.jpg 640w, img/galleria/15-pecore.jpg 1228w" sizes="(max-width: 720px) 100vw, 33vw" alt="Le pecore nell'uliveto di Sa Sida Country" loading="lazy" width="1228" height="818">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-07" data-gallery-full="img/galleria/07-pizzaiolo.jpg" data-gallery-caption="Il pizzaiolo all'opera">
+            <img src="img/galleria/07-pizzaiolo-640.jpg" srcset="img/galleria/07-pizzaiolo-640.jpg 640w, img/galleria/07-pizzaiolo.jpg 1920w" sizes="(max-width: 720px) 100vw, 33vw" alt="Il pizzaiolo a Sa Sida Country" loading="lazy" width="1920" height="1280">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-21" data-gallery-full="img/galleria/21-passeggiata.jpg" data-gallery-caption="La passeggiata nel verde">
+            <img src="img/galleria/21-passeggiata-640.jpg" srcset="img/galleria/21-passeggiata-640.jpg 640w, img/galleria/21-passeggiata.jpg 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="La passeggiata nel verde" loading="lazy" width="1600" height="1066">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-22" data-gallery-full="img/galleria/tavolini.jpg" data-gallery-caption="I tavolini in giardino">
+            <img src="img/galleria/tavolini-640.jpg" srcset="img/galleria/tavolini-640.jpg 640w, img/galleria/tavolini.jpg 1280w" sizes="(max-width: 720px) 100vw, 33vw" alt="I tavolini in giardino a Sa Sida Country" loading="lazy" width="1280" height="853">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-23" data-gallery-full="img/galleria/bicchieri-brindisi.png" data-gallery-caption="Il brindisi">
+            <img src="img/galleria/bicchieri-brindisi-640.jpg" srcset="img/galleria/bicchieri-brindisi-640.jpg 640w, img/galleria/bicchieri-brindisi.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Il brindisi a Sa Sida Country" loading="lazy" width="426" height="640">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-24" data-gallery-full="img/galleria/stuzzichini.png" data-gallery-caption="Gli stuzzichini dell'aperitivo">
+            <img src="img/galleria/stuzzichini-640.jpg" srcset="img/galleria/stuzzichini-640.jpg 640w, img/galleria/stuzzichini.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Gli stuzzichini dell'aperitivo" loading="lazy" width="440" height="614">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-25" data-gallery-full="img/galleria/tavolo-pane-e-olio.png" data-gallery-caption="Pane e olio sulla tavola">
+            <img src="img/galleria/tavolo-pane-e-olio-640.jpg" srcset="img/galleria/tavolo-pane-e-olio-640.jpg 640w, img/galleria/tavolo-pane-e-olio.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Pane e olio sulla tavola" loading="lazy" width="438" height="613">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-26" data-gallery-full="img/galleria/olio.png" data-gallery-caption="L'olio dei nostri ulivi">
+            <img src="img/galleria/olio-640.jpg" srcset="img/galleria/olio-640.jpg 640w, img/galleria/olio.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="L'olio extravergine dei nostri ulivi" loading="lazy" width="419" height="635">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-27" data-gallery-full="img/galleria/fiori.png" data-gallery-caption="Fiori freschi">
+            <img src="img/galleria/fiori-640.jpg" srcset="img/galleria/fiori-640.jpg 640w, img/galleria/fiori.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Fiori freschi sulla tavola" loading="lazy" width="477" height="624">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-28" data-gallery-full="img/galleria/tavolo-confetti.png" data-gallery-caption="Confetti e segnaposto">
+            <img src="img/galleria/tavolo-confetti-640.jpg" srcset="img/galleria/tavolo-confetti-640.jpg 640w, img/galleria/tavolo-confetti.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Confetti e segnaposto" loading="lazy" width="490" height="620">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-29" data-gallery-full="img/galleria/tavolo.png" data-gallery-caption="La tavola apparecchiata">
+            <img src="img/galleria/tavolo-640.jpg" srcset="img/galleria/tavolo-640.jpg 640w, img/galleria/tavolo.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="La tavola apparecchiata" loading="lazy" width="424" height="653">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-30" data-gallery-full="img/galleria/tavolo-1.png" data-gallery-caption="I dettagli della tavola">
+            <img src="img/galleria/tavolo-1-640.jpg" srcset="img/galleria/tavolo-1-640.jpg 640w, img/galleria/tavolo-1.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="I dettagli della tavola" loading="lazy" width="466" height="645">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-31" data-gallery-full="img/galleria/pizza1.jpg" data-gallery-caption="La pizza di Sa Sida">
+            <img src="img/galleria/pizza1-640.jpg" srcset="img/galleria/pizza1-640.jpg 640w, img/galleria/pizza1.jpg 959w" sizes="(max-width: 720px) 100vw, 33vw" alt="La pizza sfornata a Sa Sida" loading="lazy" width="959" height="530">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-32" data-gallery-full="img/galleria/torta.png" data-gallery-caption="La torta della festa">
+            <img src="img/galleria/torta-640.jpg" srcset="img/galleria/torta-640.jpg 640w, img/galleria/torta.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="La torta della festa" loading="lazy" width="602" height="421">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-33" data-gallery-full="img/galleria/pianta-colorata.png" data-gallery-caption="Un tocco di colore">
+            <img src="img/galleria/pianta-colorata-640.jpg" srcset="img/galleria/pianta-colorata-640.jpg 640w, img/galleria/pianta-colorata.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Un tocco di colore nel giardino" loading="lazy" width="598" height="616">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-34" data-gallery-full="img/galleria/dettagli.png" data-gallery-caption="Dettagli d'allestimento">
+            <img src="img/galleria/dettagli-640.jpg" srcset="img/galleria/dettagli-640.jpg 640w, img/galleria/dettagli.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="Dettagli d'allestimento" loading="lazy" width="420" height="641">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-35" data-gallery-full="img/galleria/entrata-tavolo-bagno.png" data-gallery-caption="L'ingresso di Sa Sida">
+            <img src="img/galleria/entrata-tavolo-bagno-640.jpg" srcset="img/galleria/entrata-tavolo-bagno-640.jpg 640w, img/galleria/entrata-tavolo-bagno.png 1600w" sizes="(max-width: 720px) 100vw, 33vw" alt="L'ingresso di Sa Sida Country" loading="lazy" width="493" height="615">
+          </figure>
+
+          <figure class="gallery-item reveal" id="g-36" data-gallery-full="img/galleria/vista-prato.jpg" data-gallery-caption="La vista sul prato">
+            <img src="img/galleria/vista-prato-640.jpg" srcset="img/galleria/vista-prato-640.jpg 640w, img/galleria/vista-prato.jpg 1127w" sizes="(max-width: 720px) 100vw, 33vw" alt="La vista sul prato a Sa Sida Country" loading="lazy" width="1127" height="741">
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COME FUNZIONA ============ -->
+    <section class="section come-funziona" id="come-funziona">
+      <div class="container">
+        <p class="eyebrow reveal">Come funziona</p>
+        <h2 class="reveal">Dalla prima idea al vostro giorno, in quattro passi</h2>
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step__num">1</span>
+            <h3>Richiedi info</h3>
+            <p>Compila il form o scrivici su WhatsApp: vi rispondiamo per conoscervi e capire la vostra idea.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">2</span>
+            <h3>Visita la location</h3>
+            <p>Sopralluogo guidato tra uliveto, garden e terrazza. Portate anche la mamma, se volete.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">3</span>
+            <h3>Blocca la vostra data</h3>
+            <p>Un acconto e il giorno è vostro: nessun altro evento in programma quella data.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">4</span>
+            <h3>Il vostro evento</h3>
+            <p>Arrivate e trovate tutto pronto. Noi restiamo al vostro fianco, dall'inizio alla fine.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIANZE ============ -->
+    <!--
+      La prima testimonianza è REALE (recensione Google pubblica, autrice Paola Tocchetti).
+      Le altre sono TESTI DI ESEMPIO creati per dare forma alla sezione:
+      - battesimo di Achille
+      - 2 lauree
+      - 2 matrimoni
+      Sostituirle con le recensioni reali dei clienti (autorizzate) prima del lancio.
+    -->
+    <section class="section testimonianze" id="testimonianze">
+      <div class="container">
+        <p class="eyebrow reveal">Testimonianze</p>
+        <h2 class="reveal">Chi ha festeggiato qui, oggi ci consiglia</h2>
+        <div class="testimonials__slider reveal" id="testimonials-slider">
+          <div class="testimonials__track" id="testimonials-track">
+          <blockquote class="testimonial testimonial--slide is-on">
+            <p class="testimonial__stars" aria-label="5 stelle su 5">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            </p>
+            <p class="testimonial__text">"Sa Sida Country è stata una delle esperienze più belle e riuscite che potessi desiderare. Fin dal primo momento, si è rivelato un luogo magico, immerso nella natura, dove il verde, i profumi e la quiete del paesaggio creano l'atmosfera perfetta per vivere momenti indimenticabili. Tutto era curato nei minimi dettagli, e l'organizzazione è stata impeccabile: attenta, puntuale e sempre con il sorriso."</p>
+            <footer class="testimonial__author">Paola T. — recensione Google</footer>
+          </blockquote>
+          <blockquote class="testimonial placeholder testimonial--slide">
+            <p class="testimonial__stars" aria-label="5 stelle su 5">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            </p>
+            <p class="testimonial__text">"Abbiamo festeggiato il battesimo di Achille in un pomeriggio di inizio estate: tutto lo spazio che serviva per i bambini, l'ombra degli ulivi per i grandi e nessuna fretta. Accoglienza sincera e organizzazione attenta, dal primo saluto all'ultimo ospite."</p>
+            <footer class="testimonial__author">La famiglia di Achille — battesimo <span class="tag-placeholder">esempio, da sostituire</span></footer>
+          </blockquote>
+          <blockquote class="testimonial placeholder testimonial--slide">
+            <p class="testimonial__stars" aria-label="5 stelle su 5">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            </p>
+            <p class="testimonial__text">"Una festa di laurea indimenticabile: gli ospiti non finivano di complimentarsi per il luogo. Luce, verde e organizzazione perfette, dal momento dell'aperitivo fino all'ultimo ballo."</p>
+            <footer class="testimonial__author">Nome ospite — laurea <span class="tag-placeholder">esempio, da sostituire</span></footer>
+          </blockquote>
+          <blockquote class="testimonial placeholder testimonial--slide">
+            <p class="testimonial__stars" aria-label="5 stelle su 5">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            </p>
+            <p class="testimonial__text">"Celebrare la laurea di mia figlia qui è stata la scelta giusta: elegante ma informale, con tutto lo spazio che serviva per chiacchiere, musica e foto. I servizi sono stati curati fin nei dettagli."</p>
+            <footer class="testimonial__author">Nome ospite — laurea <span class="tag-placeholder">esempio, da sostituire</span></footer>
+          </blockquote>
+          <blockquote class="testimonial placeholder testimonial--slide">
+            <p class="testimonial__stars" aria-label="5 stelle su 5">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            </p>
+            <p class="testimonial__text">"Il nostro matrimonio a Sa Sida è stato esattamente come lo avevamo immaginato: il tramonto sull'uliveto, il ricevimento sotto le tensostrutture e la location tutta per noi, senza un altro evento in programma."</p>
+            <footer class="testimonial__author">Nome ospite — matrimonio <span class="tag-placeholder">esempio, da sostituire</span></footer>
+          </blockquote>
+          <blockquote class="testimonial placeholder testimonial--slide">
+            <p class="testimonial__stars" aria-label="5 stelle su 5">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.2l-6.1 3.2 1.5-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+            </p>
+            <p class="testimonial__text">"Un posto vero, autentico. Gli ospiti ci dicono ancora oggi che era la location più bella in cui siano mai stati. Grazie di cuore a chi ci ha accolti con tanta cura."</p>
+            <footer class="testimonial__author">Nome ospite — matrimonio <span class="tag-placeholder">esempio, da sostituire</span></footer>
+          </blockquote>
+          </div>
+          <button class="testimonials__nav testimonials__nav--prev" id="testimonials-prev" aria-label="Recensione precedente">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="testimonials__nav testimonials__nav--next" id="testimonials-next" aria-label="Recensione successiva">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+          <div class="testimonials__dots" id="testimonials-dots" aria-label="Scegli la recensione"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section faq" id="faq">
+      <div class="container container--narrow">
+        <p class="eyebrow reveal">Domande frequenti</p>
+        <h2 class="reveal">Le domande che ci fanno più spesso</h2>
+
+        <div class="faq__list">
+          <details class="faq-item reveal" open>
+            <summary>Quanti invitati posso ospitare?</summary>
+            <div class="faq-item__body"><p>Fino a 150 invitati, tra spazi all'aperto e tensostrutture coperte.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Organizzate anche eventi che non sono matrimoni?</summary>
+            <div class="faq-item__body"><p>Sì: cerimonie civili, eventi privati, feste di famiglia, anniversari, proposte ed eventi aziendali.
+              La location si adatta all'occasione, sempre con un solo evento al giorno.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Il catering è incluso o è libera scelta?</summary>
+            <div class="faq-item__body"><p>La location non fa catering interno: ospitate il catering che preferite, in una cucina attrezzata professionale.
+              <em class="tag-placeholder">Da confermare: eventuali catering convenzionati o consigliati.</em></p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>È vero che ospitate un solo evento al giorno?</summary>
+            <div class="faq-item__body"><p>Sì: un solo evento per data. La location è interamente vostra, senza sovrapposizioni né tempi di servizio condivisi.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Posso celebrare la cerimonia civile in loco?</summary>
+            <div class="faq-item__body"><p>Sì, c'è uno spazio dedicato alla cerimonia civile, immerso nel verde.
+              <em class="tag-placeholder">Da confermare: pratiche e documentazione con il comune di Sanluri.</em></p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>C'è un parcheggio per gli ospiti?</summary>
+            <div class="faq-item__body"><p>Sì, un ampio parcheggio privato e gratuito a pochi passi dagli spazi della festa.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>E se piove?</summary>
+            <div class="faq-item__body"><p>Le tensostrutture e gli spazi coperti permettono di spostare il ricevimento al riparo senza perdere l'atmosfera della campagna.
+              <em class="tag-placeholder">Da confermare: piano B definitivo e allestimenti coperti.</em></p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Quanto costa l'affitto della location?</summary>
+            <div class="faq-item__body"><p>L'affitto varia indicativamente da 1.500 € a 4.500 €, secondo stagione e allestimento.
+              <em class="tag-placeholder">Da confermare con il cliente prima della pubblicazione.</em></p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TERRITORIO ============ -->
+    <section class="section territorio" id="territorio">
+      <div class="container">
+        <p class="eyebrow reveal">Il territorio</p>
+        <h2 class="reveal">La Sardegna vera, <em>a un passo</em></h2>
+        <p class="section-intro reveal">Non solo la location: chi arriva a Sanluri trova un paese autentico,
+          dove i vostri ospiti possono passeggiare, gustare e respirare la vera isola.</p>
+        <div class="territorio__grid">
+          <figure class="territorio__card reveal">
+            <img src="img/territorio/borgo-640.jpg"
+                 srcset="img/territorio/borgo-640.jpg 640w, img/territorio/borgo.jpg 1920w"
+                 sizes="(max-width: 900px) 100vw, 400px" alt="Il borgo di Sanluri" loading="lazy" width="1920" height="1280">
+            <figcaption><strong>Il borgo di Sanluri</strong><span>Musei, botteghe e vie antiche a pochi minuti dalla location.</span></figcaption>
+          </figure>
+          <figure class="territorio__card reveal">
+            <img src="img/territorio/castello-640.jpg"
+                 srcset="img/territorio/castello-640.jpg 640w, img/territorio/castello.jpg 1920w"
+                 sizes="(max-width: 900px) 100vw, 400px" alt="Il Castello di Sanluri" loading="lazy" width="1920" height="1440">
+            <figcaption><strong>Il Castello di Sanluri</strong><span>Uno dei pochi castelli medievali visitabili della Sardegna.</span></figcaption>
+          </figure>
+          <figure class="territorio__card reveal">
+            <img src="img/territorio/civraxiu-640.jpg"
+                 srcset="img/territorio/civraxiu-640.jpg 640w, img/territorio/civraxiu.jpg 1920w"
+                 sizes="(max-width: 900px) 100vw, 400px" alt="Il civraxiu, il pane tradizionale di Sanluri" loading="lazy" width="1920" height="1440">
+            <figcaption><strong>Il civraxiu</strong><span>Il grande pane della festa di Sanluri, simbolo di convivialità.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATTI ============ -->
+    <section class="section contatti" id="contatti">
+      <div class="container">
+        <p class="eyebrow reveal">Contatti</p>
+        <h2 class="reveal">Parliamo <em>del vostro giorno</em></h2>
+        <p class="section-intro reveal">Form, WhatsApp, telefono o email: scriveteci come vi è più comodo.</p>
+
+        <div class="contatti__grid">
+          <div class="contatti__info reveal">
+            <h3>Sa Sida Country</h3>
+            <address class="contatti__address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              Bruncu Sa Sida, 09025 Sanluri (Sud Sardegna)
+            </address>
+            <p class="contatti__line contatti__line--trust">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+              Rispondiamo entro 24 ore
+            </p>
+            <p class="contatti__line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              <a href="tel:+390000000000">+39 000 000 0000</a> <span class="tag-placeholder">da confermare</span>
+            </p>
+            <p class="contatti__line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <a href="mailto:info@sasidacountry.it">info@sasidacountry.it</a> <span class="tag-placeholder">da confermare</span>
+            </p>
+            <p class="contatti__line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 8.5 12 14l9.5-5.5"/></svg>
+              <a href="https://www.instagram.com/sasidacountryside/" target="_blank" rel="noopener">@sasidacountryside</a>
+            </p>
+            <p class="contatti__line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M8 2.5v4M16 2.5v4M3 9.5h18"/></svg>
+              Visite e sopralluoghi su appuntamento
+            </p>
+            <div class="contatti__cta">
+              <a href="https://wa.me/390000000000?text=Buongiorno%2C%20vorrei%20informazioni%20su%20Sa%20Sida%20Country" target="_blank" rel="noopener" class="btn btn--wa">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.2c-.2.7-1.3 1.3-1.8 1.4-.5 0-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4.1.1.1.6-.1 1.1z"/></svg>
+                Scrivici su WhatsApp
+              </a>
+              <a href="tel:+390000000000" class="btn btn--ghost">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+                Chiamaci
+              </a>
+            </div>
+            <!-- TODO: se il cliente lo conferma, sostituire il numero in tutti i punti
+                 (vedi commento in testa al file) -->
+          </div>
+
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-nome">Nome e cognome *</label>
+                <input type="text" id="f-nome" name="nome" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="f-telefono">Telefono *</label>
+                <input type="tel" id="f-telefono" name="telefono" autocomplete="tel" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-email">Email *</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" required>
+              </div>
+              <div class="form-field">
+                <label for="f-data">Data dell'evento (o periodo indicativo)</label>
+                <input type="date" id="f-data" name="data">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-invitati">Numero di invitati stimato</label>
+                <select id="f-invitati" name="invitati">
+                  <option value="">Seleziona…</option>
+                  <option>Meno di 50</option>
+                  <option>50 – 100</option>
+                  <option>100 – 150</option>
+                  <option>Oltre 150</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="f-tipo">Tipo di evento</label>
+                <select id="f-tipo" name="tipo">
+                  <option value="">Seleziona…</option>
+                  <option>Matrimonio</option>
+                  <option>Cerimonia civile</option>
+                  <option>Evento privato</option>
+                  <option>Evento aziendale</option>
+                  <option>Altro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="f-messaggio">Raccontateci la vostra idea</label>
+              <textarea id="f-messaggio" name="messaggio" rows="4"></textarea>
+            </div>
+            <p class="form-note">Premendo invia si apre WhatsApp con il messaggio già compilato —
+              oppure usate <a href="mailto:info@sasidacountry.it">info@sasidacountry.it</a>.
+              <span class="tag-placeholder">In alternativa, predisporre Formspree/EmailJS (vedi js/main.js)</span></p>
+            <p class="form-hp" aria-hidden="true">
+              <label for="f-website">Non compilare questo campo</label>
+              <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+            </p>
+            <label class="form-consent">
+              <input type="checkbox" name="consenso" required>
+              <span>Acconsento al trattamento dei dati personali per ricevere informazioni su Sa Sida Country *</span>
+            </label>
+            <button type="submit" class="btn btn--dark btn--lg">Invia la richiesta</button>
+          </form>
+        </div>
+
+        <div class="map-wrap reveal">
+          <iframe title="Mappa di Sa Sida Country, Bruncu Sa Sida, Sanluri"
+                  data-src="https://www.google.com/maps?q=Bruncu%20Sa%20Sida%2C%20Sanluri%20(Sud%20Sardegna)&output=embed"
+                  width="100%" height="380" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="map-wrap__btn" href="https://www.google.com/maps?q=Bruncu%20Sa%20Sida%2C%20Sanluri" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            Apri in Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="img/logo-dark.png" alt="Sa Sida Country" width="48" height="48" loading="lazy">
+        <p>Location per matrimoni ed eventi immersa in un uliveto secolare a Sanluri, nel cuore del Sud Sardegna.</p>
+      </div>
+      <nav class="footer__col" aria-label="Link rapidi">
+        <h4>Navigazione</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#spazi">Gli Spazi</a></li>
+          <li><a href="#galleria">Galleria</a></li>
+          <li><a href="#come-funziona">Come Funziona</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h4>Contatti</h4>
+        <ul>
+          <li>Bruncu Sa Sida, 09025 Sanluri (Sud Sardegna)</li>
+          <li><a href="tel:+390000000000">+39 000 000 0000</a></li>
+          <li><a href="mailto:info@sasidacountry.it">info@sasidacountry.it</a></li>
+          <li><a href="https://www.instagram.com/sasidacountryside/" target="_blank" rel="noopener">Instagram @sasidacountryside</a></li>
+        </ul>
+      </div>
+      <div class="footer__col footer__cta">
+        <h4>Il vostro giorno</h4>
+        <p>Un solo evento al giorno, fino a 150 invitati.</p>
+        <a href="#contatti" class="btn btn--gold">Richiedi un preventivo</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; <span id="year"></span> Sa Sida Country · Bruncu Sa Sida, 09025 Sanluri (Sud Sardegna)</p>
+        <p class="footer-credit">Realizzato con cura da <a href="https://mockly.it" target="_blank" rel="noopener">Mockly</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <button class="back-top" id="back-top" aria-label="Torna all'inizio">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>
+  </button>
+
+  <!-- ============ CTA MOBILE STICKY ============ -->
+  <div class="mobile-cta" id="mobile-cta">
+    <a href="#contatti" class="btn btn--gold">Richiedi preventivo</a>
+    <a href="https://wa.me/390000000000?text=Buongiorno%2C%20vorrei%20informazioni%20su%20Sa%20Sida%20Country" target="_blank" rel="noopener" class="btn btn--wa" aria-label="Scrivici su WhatsApp">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.2c-.2.7-1.3 1.3-1.8 1.4-.5 0-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4.1.1.1.6-.1 1.1z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Anteprima fotografica" hidden>
+    <button class="lightbox__close" id="lightbox-close" aria-label="Chiudi">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Foto precedente">&#8249;</button>
+    <figure class="lightbox__figure">
+      <img src="" alt="" id="lightbox-img">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <span class="lightbox__counter" id="lightbox-counter" aria-live="polite"></span>
+    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Foto successiva">&#8250;</button>
+  </div>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>

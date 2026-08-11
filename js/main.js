@@ -22,11 +22,16 @@ var EMAIL = 'info@sasidacountry.it';
   /* ---------------- Header: stato scrolled ---------------- */
   var header = document.getElementById('site-header');
   var hero = document.querySelector('.hero');
+  var headerTicking = false;
 
   function onScrollHeader() {
-    var scrolled = window.scrollY > 40;
-    header.classList.toggle('is-scrolled', scrolled);
-    if (hero) hero.classList.toggle('is-scrolled', window.scrollY > 90);
+    if (headerTicking) return;
+    headerTicking = true;
+    requestAnimationFrame(function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 40);
+      if (hero) hero.classList.toggle('is-scrolled', window.scrollY > 90);
+      headerTicking = false;
+    });
   }
   window.addEventListener('scroll', onScrollHeader, { passive: true });
   onScrollHeader();

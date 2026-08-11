@@ -31,22 +31,6 @@ var EMAIL = 'info@sasidacountry.it';
   window.addEventListener('scroll', onScrollHeader, { passive: true });
   onScrollHeader();
 
-  /* ---------------- Barra di avanzamento lettura ---------------- */
-  var progressBar = document.getElementById('progress-bar');
-  var progressTicking = false;
-  function onProgress() {
-    if (progressTicking || !progressBar) return;
-    progressTicking = true;
-    requestAnimationFrame(function () {
-      var doc = document.documentElement;
-      var max = doc.scrollHeight - window.innerHeight;
-      progressBar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
-      progressTicking = false;
-    });
-  }
-  window.addEventListener('scroll', onProgress, { passive: true });
-  onProgress();
-
   /* ---------------- Scrollspy: voce di menu attiva ---------------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-list .nav-link'));
   if (navLinks.length && 'IntersectionObserver' in window) {
@@ -168,69 +152,8 @@ var EMAIL = 'info@sasidacountry.it';
       });
     });
 
-  /* ---------------- Testimonianze: slider (una alla volta) ---------------- */
-  var tTrack = document.getElementById('testimonials-track');
-  var tSlides = tTrack ? Array.prototype.slice.call(tTrack.querySelectorAll('.testimonial--slide')) : [];
-  var tDots = document.getElementById('testimonials-dots');
-  var tPrev = document.getElementById('testimonials-prev');
-  var tNext = document.getElementById('testimonials-next');
-  var tIndex = 0;
-  var tTimer = null;
-  var T_MS = 6500;
-
-  function tGo(i) {
-    if (!tSlides.length) return;
-    tIndex = (i + tSlides.length) % tSlides.length;
-    tSlides.forEach(function (slide, j) {
-      slide.classList.toggle('is-on', j === tIndex);
-    });
-    if (tDots) {
-      Array.prototype.forEach.call(tDots.children, function (dot, j) {
-        dot.classList.toggle('is-active', j === tIndex);
-      });
-    }
-  }
-
-  /* Autoplay sempre attivo (anche con reduce-motion: nessuna animazione,
-     solo il cambio di recensione — le transizioni sono già disattivate) */
-  function tPlay() {
-    if (!tSlides.length) return;
-    tStop();
-    tTimer = setInterval(function () { tGo(tIndex + 1); }, T_MS);
-  }
-  function tStop() {
-    if (tTimer) { clearInterval(tTimer); tTimer = null; }
-  }
-
-  if (tTrack && tSlides.length) {
-    tSlides.forEach(function (_, i) {
-      var dot = document.createElement('button');
-      dot.setAttribute('type', 'button');
-      dot.setAttribute('aria-label', 'Mostra recensione ' + (i + 1));
-      if (i === 0) dot.classList.add('is-active');
-      dot.addEventListener('click', function () { tGo(i); tPlay(); });
-      tDots.appendChild(dot);
-    });
-    if (tPrev) tPrev.addEventListener('click', function () { tGo(tIndex - 1); tPlay(); });
-    if (tNext) tNext.addEventListener('click', function () { tGo(tIndex + 1); tPlay(); });
-    var slider = document.getElementById('testimonials-slider');
-    if (slider) {
-      slider.addEventListener('mouseenter', tStop);
-      slider.addEventListener('mouseleave', tPlay);
-      slider.addEventListener('focusin', tStop);
-      slider.addEventListener('focusout', tPlay);
-    }
-    var tTouchX = null;
-    tTrack.addEventListener('touchstart', function (e) { tTouchX = e.changedTouches[0].clientX; }, { passive: true });
-    tTrack.addEventListener('touchend', function (e) {
-      if (tTouchX === null) return;
-      var dx = e.changedTouches[0].clientX - tTouchX;
-      if (Math.abs(dx) > 40) tGo(tIndex + (dx < 0 ? 1 : -1));
-      tTouchX = null;
-      tPlay();
-    }, { passive: true });
-    tPlay();
-  }
+  /* ---------------- Testimonianze ---------------- */
+  /* Statiche in HTML: nessuna logica necessaria. */
 
   /* Linea dei passi: si disegna quando la sezione entra in vista */
   var stepsSection = document.querySelector('.steps');

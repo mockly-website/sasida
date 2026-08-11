@@ -231,6 +231,8 @@ var EMAIL = 'info@sasidacountry.it';
   var current = 0;
   var closeTimer = null;
 
+  if (lightbox) {
+
   function render(src, alt, caption, counterText) {
     lightboxImg.src = src;
     lightboxImg.alt = alt;
@@ -323,6 +325,7 @@ var EMAIL = 'info@sasidacountry.it';
     if (Math.abs(dx) > 48) showAt(current + (dx < 0 ? 1 : -1));
     touchX = null;
   }, { passive: true });
+  }
 
   /* ---------------- Back to top ---------------- */
   var backTop = document.getElementById('back-top');
@@ -331,11 +334,13 @@ var EMAIL = 'info@sasidacountry.it';
     backTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.9);
   }
   window.addEventListener('scroll', onBackTop, { passive: true });
-  onBackTop();
 
-  backTop.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-  });
+  if (backTop) {
+    onBackTop();
+    backTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
 
   /* ---------------- Count-up dei numeri ---------------- */
   function animateCount(el) {
@@ -394,9 +399,10 @@ var EMAIL = 'info@sasidacountry.it';
      Formspree (https://formspree.io/f/...) o EmailJS. */
   var form = document.getElementById('contact-form');
 
-  function composeMessage(data) {
-    var lines = [
-      'Richiesta informazioni — Sa Sida Country',
+  if (form) {
+    function composeMessage(data) {
+      var lines = [
+        'Richiesta informazioni — Sa Sida Country',
       '',
       'Nome: ' + data.nome,
       'Telefono: ' + data.telefono,
@@ -447,6 +453,7 @@ var EMAIL = 'info@sasidacountry.it';
     submitToWhatsApp(message);
     form.reset();
   });
+  }
 
   /* ---------------- Anno nel footer ---------------- */
   var yearEl = document.getElementById('year');

@@ -141,6 +141,31 @@ var EMAIL = 'info@sasidacountry.it';
     if (e.key === 'Escape') closeNav();
   });
 
+  /* Chiudi il menu toccando l'overlay scuro sotto di esso */
+  document.body.addEventListener('click', function (e) {
+    if (e.target === document.body && mainNav.classList.contains('open')) closeNav();
+  });
+
+  /* ---------------- Testimonianze: frecce (solo mobile) ---------------- */
+  var tGrid = document.getElementById('testimonials-grid');
+  var tPrev = document.getElementById('testimonials-prev');
+  var tNext = document.getElementById('testimonials-next');
+
+  function tStep() {
+    var card = tGrid.querySelector('.testimonial');
+    var gap = parseFloat(getComputedStyle(tGrid).columnGap || '0') || 16;
+    return (card ? card.offsetWidth : 300) + gap;
+  }
+
+  if (tGrid && tPrev && tNext) {
+    tPrev.addEventListener('click', function () {
+      tGrid.scrollBy({ left: -tStep(), behavior: 'smooth' });
+    });
+    tNext.addEventListener('click', function () {
+      tGrid.scrollBy({ left: tStep(), behavior: 'smooth' });
+    });
+  }
+
   /* ---------------- Reveal on scroll ---------------- */
   var revealEls = document.querySelectorAll('.reveal');
 
@@ -153,7 +178,7 @@ var EMAIL = 'info@sasidacountry.it';
     });
 
   /* ---------------- Testimonianze ---------------- */
-  /* Statiche in HTML: nessuna logica necessaria. */
+  /* Griglia desktop statica; su mobile riga scorrevole con frecce (sopra). */
 
   /* Linea dei passi: si disegna quando la sezione entra in vista */
   var stepsSection = document.querySelector('.steps');
